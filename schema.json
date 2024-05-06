@@ -1,0 +1,100 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "links": {
+      "type": "object",
+      "properties": {
+        "websites": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "documentation": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "explorers": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "repositories": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "socialMedia": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        }
+      },
+      "required": ["websites", "documentation", "explorers", "repositories", "socialMedia"]
+    },
+    "networks": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "purposes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "ai", "bridge", "dao", "defi", "evm", "gaming", "governance",
+          "nft", "oracles", "rwa", "socialfi", "staking", "testing", "universal"
+        ]
+      }
+    },
+    "stackLevels": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "protocol", "runtime", "smart-contract", "messaging", "offchain"
+        ]
+      }
+    },
+    "technologies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "types": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": [
+          "platform", "tool", "library", "client", "framework", "template", "mobile", "service", "dApp"
+        ]
+      }
+    }
+  },
+  "required": [
+    "name", "slug", "description", "links", "networks", "purposes", 
+    "stackLevels", "technologies", "types"
+  ]
+}
