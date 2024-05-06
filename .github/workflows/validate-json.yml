@@ -24,4 +24,4 @@ jobs:
 
       - name: Validate JSON files
         run: |
-          ajv validate -s project-schema.json -d '**/*.json' --strict=false
+          ajv validate -s schema.json -d '**/*.json' --strict=false
