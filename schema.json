@@ -63,7 +63,7 @@
       "items": {
         "type": "string",
         "enum": [
-          "ai", "bridge", "dao", "defi", "evm", "gaming", "governance",
+          "ai", "bridge", "dao", "data", "defi", "evm", "gaming", "governance",
           "nft", "oracles", "rwa", "socialfi", "staking", "testing", "universal"
         ]
       }
