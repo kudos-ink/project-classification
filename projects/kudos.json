@@ -22,9 +22,7 @@
   "purposes": [
     "data"
   ],
-  "stackLevels": [
-    "offchain"
-  ],
+  "stackLevels": [],
   "technologies": [
     "Typescript",
     "Rust"
