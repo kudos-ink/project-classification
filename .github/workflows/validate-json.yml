@@ -25,4 +25,4 @@ jobs:
       
       - name: Validate JSON files
         run: |
-          ajv -c ajv-formats validate -s project-schema.json -d '**/*.json' --strict=false
+          ajv -c ajv-formats validate -s schema.json -d '**/*.json' --strict=false
