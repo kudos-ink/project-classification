@@ -19,9 +19,10 @@ jobs:
         with:
           node-version: '14'
 
-      - name: Install JSON Schema Validator
-        run: npm install -g ajv-cli
-
+      - name: Install JSON Schema Validator and Formats
+        run: |
+          npm install -g ajv-cli ajv-formats
+      
       - name: Validate JSON files
         run: |
-          ajv validate -s schema.json -d '**/*.json' --strict=false
+          ajv -c ajv-formats validate -s project-schema.json -d '**/*.json' --strict=false
