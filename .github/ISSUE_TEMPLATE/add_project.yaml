@@ -1,0 +1,119 @@
+name: Add a project
+description: Use this form to add a new project to the Kudos Portal.
+
+title: "[Add a project]"
+
+labels: ["add-project"]
+
+body:
+  - type: input
+    id: name
+    attributes:
+      label: Project Name
+      description: "Enter the name of the project."
+      placeholder: "Kudos"
+      required: true
+
+  - type: input
+    id: slug
+    attributes:
+      label: Slug
+      description: "Enter a slug for the project."
+      placeholder: "kudos"
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: "Provide a description of the project."
+      placeholder: "A Portal for Agile Devtime..."
+      required: true
+
+  - type: input
+    id: websites
+    attributes:
+      label: Websites
+      description: "Enter website URLs separated by commas."
+      placeholder: "https://morekudos.com"
+      required: true
+
+  - type: input
+    id: documentation
+    attributes:
+      label: Documentation
+      description: "Enter documentation URLs separated by commas."
+      placeholder: "https://github.com/kudos-ink"
+      required: false
+
+  - type: input
+    id: explorers
+    attributes:
+      label: Explorers
+      description: "Enter explorer URLs separated by commas."
+      placeholder: ""
+      required: false
+
+  - type: input
+    id: repositories
+    attributes:
+      label: Repositories
+      description: "Enter repository URLs separated by commas."
+      placeholder: "https://github.com/kudos-ink/portal, https://github.com/kudos-ink/issues-api"
+      required: true
+
+  - type: input
+    id: socialMedia
+    attributes:
+      label: Social Media
+      description: "Enter social media URLs separated by commas."
+      placeholder: "https://x.com/KudosPortal"
+      required: false
+
+  - type: input
+    id: networks
+    attributes:
+      label: Networks
+      description: "Enter network names separated by commas."
+      placeholder: ""
+      required: false
+
+  - type: checkboxes
+    id: purposes
+    attributes:
+      label: Purposes
+      description: "Select the purposes."
+      options:
+        - label: Data
+          value: data
+      required: true
+
+  - type: input
+    id: stackLevels
+    attributes:
+      label: Stack Levels
+      description: "Enter stack levels separated by commas."
+      placeholder: ""
+      required: false
+
+  - type: checkboxes
+    id: technologies
+    attributes:
+      label: Technologies
+      description: "Select the technologies used."
+      options:
+        - label: TypeScript
+          value: typescript
+        - label: Rust
+          value: rust
+      required: true
+
+  - type: checkboxes
+    id: types
+    attributes:
+      label: Types
+      description: "Select the types."
+      options:
+        - label: dApp
+          value: dApp
+      required: true
