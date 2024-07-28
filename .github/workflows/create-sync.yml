@@ -28,8 +28,8 @@ jobs:
             git show ${{ github.event.before }}:"$FILE_PATH" > old_file.json
             git show ${{ github.event.after }}:"$FILE_PATH" > new_file.json
             # Compare repositories arrays
-            OLD_REPOS=$(jq '.links.repositories' old_file.json)
-            NEW_REPOS=$(jq '.links.repositories' new_file.json)
+            OLD_REPOS=$(jq '.links.repositories | sort' old_file.json | jq -S .)
+            NEW_REPOS=$(jq '.links.repositories | sort' new_file.json | jq -S .)
             if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
               echo "REPO_CHANGED=true" >> $GITHUB_ENV
             else
