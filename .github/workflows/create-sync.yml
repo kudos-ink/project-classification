@@ -1,4 +1,4 @@
-name: Process JSON File Update
+name: Process JSON File Changes
 
 on:
   push:
@@ -15,48 +15,48 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v3
         with:
-          fetch-depth: 0 
+          fetch-depth: 2
 
-
-      - name: Get file status and content differences
+      - name: Determine file status and content differences
         run: |
-          git fetch --depth=1 origin ${{ github.base_ref }}
-          FILE_STATUS=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep '.json' | awk '{print $1}')
-          FILE_PATH=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep '.json' | awk '{print $2}')
-          if [ "$FILE_STATUS" == "M" ]; then
-            # Fetch the old and new content of the file
+          # Determine file status and path
+          FILE_CHANGE=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep 'data/projects/*.json')
+          FILE_STATUS=$(echo $FILE_CHANGE | awk '{print $1}')
+          FILE_PATH=$(echo $FILE_CHANGE | awk '{print $2}')
+
+          if [ "$FILE_STATUS" == "A" ]; then
+            echo "Action: Create new entry"
+          elif [ "$FILE_STATUS" == "M" ]; then
+            # Fetch the old and new content of the file for comparison
             git show ${{ github.event.before }}:"$FILE_PATH" > old_file.json
             git show ${{ github.event.after }}:"$FILE_PATH" > new_file.json
-            # Compare repositories arrays
+
+            # Compare repositories array
             OLD_REPOS=$(jq '.links.repositories | sort' old_file.json | jq -S .)
             NEW_REPOS=$(jq '.links.repositories | sort' new_file.json | jq -S .)
+            SYNC="false"
             if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
-              echo "REPO_CHANGED=true" >> $GITHUB_ENV
-            else
-              echo "REPO_CHANGED=false" >> $GITHUB_ENV
+              SYNC="true"
             fi
-          fi
-          echo "FILE_STATUS=$FILE_STATUS" >> $GITHUB_ENV
-          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
 
-
-      - name: Log Endpoint and Request Body
-        run: |
-          JSON_CONTENT=$(jq -c . "$FILE_PATH")
-          if [ "$FILE_STATUS" == "A" ]; then  # 'A' indicates a new file
-            REQUEST_BODY="{\"type\": \"update\", \"data\": $JSON_CONTENT}"
-          elif [ "$FILE_STATUS" == "M" ]; then  # 'M' indicates a modified file
-            if [ "$REPO_CHANGED" == "true" ]; then
-              SYNC_VALUE="true"
-            else
-              SYNC_VALUE="false"
+            # Compare attributes object
+            OLD_ATTRS=$(jq '.attributes' old_file.json | jq -S .)
+            NEW_ATTRS=$(jq '.attributes' new_file.json | jq -S .)
+            UPDATE="false"
+            if [ "$OLD_ATTRS" != "$NEW_ATTRS" ]; then
+              UPDATE="true"
             fi
-            REQUEST_BODY="{\"type\": \"update\", \"sync\": $SYNC_VALUE, \"data\": $JSON_CONTENT}"
+
+            # Log actions based on conditions
+            if [ "$SYNC" == "true" ]; then
+              echo "Action: Sync required due to change in repositories."
+            fi
+            if [ "$UPDATE" == "true" ]; then
+              echo "Action: Update required due to change in attributes."
+            fi
+            if [ "$SYNC" == "false" ] && [ "$UPDATE" == "false" ]; then
+              echo "No significant changes detected; no action taken."
+            fi
+          else
+            echo "File deleted or other non-applicable change detected; no action taken."
           fi
-          # Log the request details
-          echo "Endpoint: https://morekudos.com/api/project"
-          echo "Request Body: $REQUEST_BODY"
-        env:
-          FILE_PATH: ${{ env.FILE_PATH }}
-          FILE_STATUS: ${{ env.FILE_STATUS }}
-          REPO_CHANGED: ${{ env.REPO_CHANGED }}
