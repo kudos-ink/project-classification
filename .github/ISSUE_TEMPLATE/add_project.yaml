@@ -12,6 +12,7 @@ body:
       label: Project Name
       description: "Enter the name of the project."
       placeholder: "Kudos"
+    validations:
       required: true
 
   - type: input
@@ -20,6 +21,7 @@ body:
       label: Slug
       description: "Enter a slug for the project."
       placeholder: "kudos"
+    validations:
       required: true
 
   - type: textarea
@@ -28,6 +30,7 @@ body:
       label: Description
       description: "Provide a description of the project."
       placeholder: "A Portal for Agile Devtime..."
+    validations:
       required: true
 
   - type: input
@@ -36,6 +39,7 @@ body:
       label: Websites
       description: "Enter website URLs separated by commas."
       placeholder: "https://morekudos.com"
+    validations:
       required: true
 
   - type: input
@@ -44,15 +48,16 @@ body:
       label: Documentation
       description: "Enter documentation URLs separated by commas."
       placeholder: "https://github.com/kudos-ink"
-      required: false
+    validations:
+      required: true
 
   - type: input
     id: explorers
     attributes:
       label: Explorers
       description: "Enter explorer URLs separated by commas."
-      placeholder: ""
-      required: false
+    validations:
+      required: true
 
   - type: input
     id: repositories
@@ -60,6 +65,7 @@ body:
       label: Repositories
       description: "Enter repository URLs separated by commas."
       placeholder: "https://github.com/kudos-ink/portal, https://github.com/kudos-ink/issues-api"
+    validations:
       required: true
 
   - type: input
@@ -68,15 +74,16 @@ body:
       label: Social Media
       description: "Enter social media URLs separated by commas."
       placeholder: "https://x.com/KudosPortal"
-      required: false
+    validations:
+      required: true
 
   - type: input
     id: networks
     attributes:
       label: Networks
       description: "Enter network names separated by commas."
-      placeholder: ""
-      required: false
+    validations:
+      required: true
 
   - type: checkboxes
     id: purposes
@@ -86,6 +93,7 @@ body:
       options:
         - label: Data
           value: data
+    validations:
       required: true
 
   - type: input
@@ -93,8 +101,8 @@ body:
     attributes:
       label: Stack Levels
       description: "Enter stack levels separated by commas."
-      placeholder: ""
-      required: false
+    validations:
+        required: true
 
   - type: checkboxes
     id: technologies
@@ -106,7 +114,8 @@ body:
           value: typescript
         - label: Rust
           value: rust
-      required: true
+    validations:
+        required: true
 
   - type: checkboxes
     id: types
@@ -116,4 +125,5 @@ body:
       options:
         - label: dApp
           value: dApp
-      required: true
+    validations:
+        required: true
