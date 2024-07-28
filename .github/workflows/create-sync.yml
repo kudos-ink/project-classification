@@ -1,0 +1,62 @@
+name: Process JSON File Update
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'data/projects/*.json'
+
+jobs:
+  process_json:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0 
+
+
+      - name: Get file status and content differences
+        run: |
+          git fetch --depth=1 origin ${{ github.base_ref }}
+          FILE_STATUS=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep '.json' | awk '{print $1}')
+          FILE_PATH=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep '.json' | awk '{print $2}')
+          if [ "$FILE_STATUS" == "M" ]; then
+            # Fetch the old and new content of the file
+            git show ${{ github.event.before }}:"$FILE_PATH" > old_file.json
+            git show ${{ github.event.after }}:"$FILE_PATH" > new_file.json
+            # Compare repositories arrays
+            OLD_REPOS=$(jq '.links.repositories' old_file.json)
+            NEW_REPOS=$(jq '.links.repositories' new_file.json)
+            if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
+              echo "REPO_CHANGED=true" >> $GITHUB_ENV
+            else
+              echo "REPO_CHANGED=false" >> $GITHUB_ENV
+            fi
+          fi
+          echo "FILE_STATUS=$FILE_STATUS" >> $GITHUB_ENV
+          echo "FILE_PATH=$FILE_PATH" >> $GITHUB_ENV
+
+
+      - name: Log Endpoint and Request Body
+        run: |
+          JSON_CONTENT=$(jq -c . "$FILE_PATH")
+          if [ "$FILE_STATUS" == "A" ]; then  # 'A' indicates a new file
+            REQUEST_BODY="{\"type\": \"update\", \"data\": $JSON_CONTENT}"
+          elif [ "$FILE_STATUS" == "M" ]; then  # 'M' indicates a modified file
+            if [ "$REPO_CHANGED" == "true" ]; then
+              SYNC_VALUE="true"
+            else
+              SYNC_VALUE="false"
+            fi
+            REQUEST_BODY="{\"type\": \"update\", \"sync\": $SYNC_VALUE, \"data\": $JSON_CONTENT}"
+          fi
+          # Log the request details
+          echo "Endpoint: https://morekudos.com/api/project"
+          echo "Request Body: $REQUEST_BODY"
+        env:
+          FILE_PATH: ${{ env.FILE_PATH }}
+          FILE_STATUS: ${{ env.FILE_STATUS }}
+          REPO_CHANGED: ${{ env.REPO_CHANGED }}
