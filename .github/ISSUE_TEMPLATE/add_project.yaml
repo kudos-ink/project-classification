@@ -92,7 +92,6 @@ body:
       description: "Select the purposes."
       options:
         - label: Data
-          value: data
     validations:
       required: true
 
@@ -111,9 +110,7 @@ body:
       description: "Select the technologies used."
       options:
         - label: TypeScript
-          value: typescript
         - label: Rust
-          value: rust
     validations:
         required: true
 
@@ -124,6 +121,5 @@ body:
       description: "Select the types."
       options:
         - label: dApp
-          value: dApp
     validations:
         required: true
