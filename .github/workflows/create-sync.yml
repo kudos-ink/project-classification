@@ -19,21 +19,30 @@ jobs:
 
       - name: Determine file status and content differences
         run: |
+          # Activate bash debugging to show commands and their arguments as they are executed
+          set -euxo pipefail
+
           # Determine file status and path
           FILE_CHANGE=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep 'data/projects/*.json')
+          echo "Detected file change: $FILE_CHANGE"
           FILE_STATUS=$(echo $FILE_CHANGE | awk '{print $1}')
           FILE_PATH=$(echo $FILE_CHANGE | awk '{print $2}')
 
           if [ "$FILE_STATUS" == "A" ]; then
-            echo "Action: Create new entry"
+            echo "Action: Create new entry for $FILE_PATH"
           elif [ "$FILE_STATUS" == "M" ]; then
+            echo "File modified: $FILE_PATH"
             # Fetch the old and new content of the file for comparison
             git show ${{ github.event.before }}:"$FILE_PATH" > old_file.json
             git show ${{ github.event.after }}:"$FILE_PATH" > new_file.json
 
+            echo "Old and new file content fetched for $FILE_PATH"
+
             # Compare repositories array
             OLD_REPOS=$(jq '.links.repositories | sort' old_file.json | jq -S .)
             NEW_REPOS=$(jq '.links.repositories | sort' new_file.json | jq -S .)
+            echo "Old Repos: $OLD_REPOS"
+            echo "New Repos: $NEW_REPOS"
             SYNC="false"
             if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
               SYNC="true"
@@ -42,6 +51,8 @@ jobs:
             # Compare attributes object
             OLD_ATTRS=$(jq '.attributes' old_file.json | jq -S .)
             NEW_ATTRS=$(jq '.attributes' new_file.json | jq -S .)
+            echo "Old Attributes: $OLD_ATTRS"
+            echo "New Attributes: $NEW_ATTRS"
             UPDATE="false"
             if [ "$OLD_ATTRS" != "$NEW_ATTRS" ]; then
               UPDATE="true"
