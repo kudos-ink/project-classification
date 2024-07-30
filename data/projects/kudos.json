@@ -11,8 +11,7 @@
     "explorers": [],
     "repositories": [
       "https://github.com/kudos-ink/portal",
-      "https://github.com/kudos-ink/issues-api",
-      "https://github.com/kudos-ink/sync-api"
+      "https://github.com/kudos-ink/issues-api"
     ],
     "socialMedia": ["https://x.com/KudosPortal"]
   },
