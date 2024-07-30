@@ -23,7 +23,7 @@ jobs:
           set -euxo pipefail
 
           # Determine file status and path
-          FILE_CHANGE=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep 'data/projects/*.json')
+          FILE_CHANGE=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep data/projects/*.json)
           echo "Detected file change: $FILE_CHANGE"
           FILE_STATUS=$(echo $FILE_CHANGE | awk '{print $1}')
           FILE_PATH=$(echo $FILE_CHANGE | awk '{print $2}')
