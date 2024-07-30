@@ -4,10 +4,7 @@
   "description": "A Portal for Agile Devtime - The Platform to Connect Teams and Skilled Contributors in the Polkadot Ecosystem.",
   "links": {
     "websites": ["https://morekudos.com"],
-    "documentation": [
-      "https://github.com/kudos-ink",
-      "https://github.com/kudos-ink/repository-classification"
-    ],
+    "documentation": ["https://github.com/kudos-ink"],
     "explorers": [],
     "repositories": [
       "https://github.com/kudos-ink/portal",
@@ -18,7 +15,7 @@
   "attributes": {
     "networks": [],
     "purposes": ["data"],
-    "stackLevels": ["offchain", "messaging"],
+    "stackLevels": ["offchain"],
     "technologies": ["typescript", "rust"],
     "types": ["dApp"]
   }
