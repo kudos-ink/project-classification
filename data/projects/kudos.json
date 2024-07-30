@@ -19,7 +19,7 @@
   "attributes": {
     "networks": [],
     "purposes": ["data"],
-    "stackLevels": ["offchain"],
+    "stackLevels": ["offchain", "messaging"],
     "technologies": ["typescript", "rust"],
     "types": ["dApp"]
   }
