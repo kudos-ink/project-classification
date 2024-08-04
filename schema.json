@@ -14,48 +14,68 @@
     "links": {
       "type": "object",
       "properties": {
-        "websites": {
+        "website": {
           "type": "array",
           "items": {
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["label", "url"]
           }
         },
-        "documentation": {
+        "docs": {
           "type": "array",
           "items": {
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["label", "url"]
           }
         },
-        "explorers": {
+        "explorer": {
           "type": "array",
           "items": {
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["label", "url"]
           }
         },
-        "repositories": {
+        "repository": {
           "type": "array",
           "items": {
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["label", "url"]
           }
         },
-        "socialMedia": {
+        "social": {
           "type": "array",
           "items": {
-            "type": "string",
-            "format": "uri"
+            "type": "object",
+            "properties": {
+              "label": { "type": "string" },
+              "url": { "type": "string", "format": "uri" }
+            },
+            "required": ["label", "url"]
           }
         }
       },
       "required": [
-        "websites",
-        "documentation",
-        "explorers",
-        "repositories",
-        "socialMedia"
+        "website",
+        "docs",
+        "explorer",
+        "repository",
+        "social"
       ]
     },
     "attributes": {
