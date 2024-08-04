@@ -5,7 +5,7 @@
   "links": {
     "website": [{ "label": "morekudos.com", "url": "https://morekudos.com" }],
     "docs": [
-      { "label": "github.com/kudos-ink", "url": "https://github.com/kudos-ink" },
+      { "label": "github.com/kudos-ink", "url": "https://github.com/kudos-ink" }
     ],
     "explorer": [],
     "repository": [
