@@ -26,14 +26,23 @@ jobs:
 
           if [ "$FILE_STATUS" == "A" ]; then
             echo "Action: Create new entry for $FILE_PATH"
+
+            REPOS=$(jq '.links.repository' "$FILE_PATH")
+
+            RESPONSE=$(curl -s -X POST "${{ secrets.API_ENDPOINT }}" \
+              -H "Content-Type: application/json" \
+              -d "$REPOS")
+
+            echo "Response from POST request: $RESPONSE"
+
           elif [ "$FILE_STATUS" == "M" ]; then
             # Fetch the old and new content of the file for comparison
             git show ${{ github.event.before }}:"$FILE_PATH" > old_file.json
             git show ${{ github.event.after }}:"$FILE_PATH" > new_file.json
 
             # Compare repositories array
-            OLD_REPOS=$(jq '.links.repositories | sort' old_file.json | jq -S .)
-            NEW_REPOS=$(jq '.links.repositories | sort' new_file.json | jq -S .)
+            OLD_REPOS=$(jq -S '.links.repository | sort_by(.label, .url)' old_file.json)
+            NEW_REPOS=$(jq -S '.links.repository | sort_by(.label, .url)' new_file.json)
             SYNC="false"
             if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
               SYNC="true"
