@@ -44,8 +44,11 @@ jobs:
             OLD_REPOS=$(jq -S '.links.repository | sort_by(.label, .url)' old_file.json)
             NEW_REPOS=$(jq -S '.links.repository | sort_by(.label, .url)' new_file.json)
             SYNC="false"
+
             if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
               SYNC="true"
+              REPOS_TO_REMOVE=$(jq --argjson old "$OLD_REPOS" --argjson new "$NEW_REPOS" '($old - $new) | .[] | {label, url}' old_file.json)
+              REPOS_TO_ADD=$(jq --argjson old "$OLD_REPOS" --argjson new "$NEW_REPOS" '($new - $old) | .[] | {label, url}' new_file.json)
             fi
 
             # Compare attributes object
@@ -59,7 +62,8 @@ jobs:
 
             # Log actions based on conditions
             if [ "$SYNC" == "true" ]; then
-              echo "Action: Sync required due to change in repositories."
+              echo "Repositories to remove: $REPOS_TO_REMOVE"
+              echo "Repositories to add: $REPOS_TO_ADD"
             fi
             if [ "$UPDATE" == "true" ]; then
               echo "Action: Update required due to change in attributes."
