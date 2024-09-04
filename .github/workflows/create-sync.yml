@@ -47,8 +47,8 @@ jobs:
 
             if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
               SYNC="true"
-              REPOS_TO_REMOVE=$(jq --argjson old "$OLD_REPOS" --argjson new "$NEW_REPOS" '[$old[] | select(.label as $label | $new | index({label: $label}) | not)]')
-              REPOS_TO_ADD=$(jq --argjson old "$OLD_REPOS" --argjson new "$NEW_REPOS" '[$new[] | select(.label as $label | $old | index({label: $label}) | not)]')
+              REPOS_TO_REMOVE=$(echo "$OLD_REPOS" | jq --argjson new "$NEW_REPOS" '. - $new')
+              REPOS_TO_ADD=$(echo "$NEW_REPOS" | jq --argjson old "$OLD_REPOS" '. - $old')
             fi
 
             # Compare attributes object
