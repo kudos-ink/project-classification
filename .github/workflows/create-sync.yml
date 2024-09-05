@@ -19,7 +19,6 @@ jobs:
 
       - name: Determine file status and content differences
         run: |
-          # Determine file status and path
           FILE_CHANGE=$(git diff --name-status ${{ github.event.before }} ${{ github.event.after }} | grep data/projects/.*\.json)
           FILE_STATUS=$(echo $FILE_CHANGE | awk '{print $1}')
           FILE_PATH=$(echo $FILE_CHANGE | awk '{print $2}')
@@ -29,21 +28,23 @@ jobs:
 
             REPOS=$(jq '{repository: .links.repository}' "$FILE_PATH")
 
-            RESPONSE=$(curl -s -X POST "${{ secrets.API_ENDPOINT }}" \
+            RESPONSE=$(curl -s -X POST "${{ secrets.CREATE_URL }}" \
               -H "Content-Type: application/json" \
               -d "$REPOS")
 
             echo "Response from POST request: $RESPONSE"
 
           elif [ "$FILE_STATUS" == "M" ]; then
-            # Fetch the old and new content of the file for comparison
+
             git show ${{ github.event.before }}:"$FILE_PATH" > old_file.json
             git show ${{ github.event.after }}:"$FILE_PATH" > new_file.json
 
-            # Compare repositories array
             OLD_REPOS=$(jq -S '.links.repository | sort_by(.label, .url)' old_file.json)
             NEW_REPOS=$(jq -S '.links.repository | sort_by(.label, .url)' new_file.json)
             SYNC="false"
+
+            REPOS_TO_REMOVE="[]"
+            REPOS_TO_ADD="[]"
 
             if [ "$OLD_REPOS" != "$NEW_REPOS" ]; then
               SYNC="true"
@@ -51,7 +52,6 @@ jobs:
               REPOS_TO_ADD=$(echo "$NEW_REPOS" | jq --argjson old "$OLD_REPOS" '. - $old')
             fi
 
-            # Compare attributes object
             OLD_ATTRS=$(jq '.attributes' old_file.json | jq -S .)
             NEW_ATTRS=$(jq '.attributes' new_file.json | jq -S .)
             
@@ -60,14 +60,35 @@ jobs:
               UPDATE="true"
             fi
 
-            # Log actions based on conditions
-            if [ "$SYNC" == "true" ]; then
-              echo "Repositories to remove: $REPOS_TO_REMOVE"
-              echo "Repositories to add: $REPOS_TO_ADD"
+            if [ "$SYNC" == "true" ] || [ "$UPDATE" == "true" ]; then
+
+              PROJECT_NAME=$(jq -r '.name' new_file.json)
+              PROJECT_SLUG=$(jq -r '.slug' new_file.json)
+
+
+              PAYLOAD=$(jq -n \
+                  --arg secret "${{ secrets.SECRET_NAME }}" \
+                  --arg project_slug "$PROJECT_SLUG" \
+                  --arg project_name "$PROJECT_NAME" \
+                  --argjson repos_to_add "$REPOS_TO_ADD" \
+                  --argjson repos_to_remove "$REPOS_TO_REMOVE" \
+                  '{
+                    secret: $secret,
+                    project_slug: $project_slug,
+                    project_name: $project_name,
+                    repos_to_add: $repos_to_add,
+                    repos_to_remove: $repos_to_remove
+                  }'
+                )
+
+
+              if [ "$UPDATE" == "true" ]; then
+                  PAYLOAD=$(echo "$PAYLOAD" | jq --argjson attributes "$NEW_ATTRS" '. + {attributes: $attributes}')
+              fi
+
+              curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.SYNC_URL }}"
             fi
-            if [ "$UPDATE" == "true" ]; then
-              echo "Action: Update required due to change in attributes."
-            fi
+
             if [ "$SYNC" == "false" ] && [ "$UPDATE" == "false" ]; then
               echo "No significant changes detected; no action taken."
             fi
