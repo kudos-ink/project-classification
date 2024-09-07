@@ -1,6 +1,9 @@
 use crate::types::{KudosIssue, Project, RepoInfo, Repository};
 
-use lambda_http::{tracing::error, Body, Error, Request};
+use lambda_http::{
+    tracing::{error, info},
+    Body, Error, Request,
+};
 use octocrab::{params::State, Octocrab};
 use sqlx::{Pool, Postgres, Row};
 use std::env;
@@ -85,6 +88,7 @@ pub async fn import_repositories(
             })
             .collect();
 
+        info!("Number of open issues: {}", filtered_issues.len());
         if filtered_issues.is_empty() {
             continue;
         }

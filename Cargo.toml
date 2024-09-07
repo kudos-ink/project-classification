@@ -2,5 +2,6 @@
 members = [
     "src/import",
     "src/sync",
-    "src/shared"
+    "src/shared",
+    "src/scripts"
 ]
