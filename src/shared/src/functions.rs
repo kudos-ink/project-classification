@@ -8,6 +8,9 @@ use octocrab::{params::State, Octocrab};
 use sqlx::{Pool, Postgres, Row};
 use std::env;
 
+use futures_util::TryStreamExt;
+use tokio::pin;
+
 pub fn extract_project(event: Request) -> Result<Project, Error> {
     let request_body = event.body();
     let json_string = (match request_body {
@@ -69,24 +72,25 @@ pub async fn import_repositories(
 
         let repo_id: i32 = repo_row.get("id");
 
-        let page = octocrab
+        let stream = octocrab
             .issues(repo_info.owner, repo_info.name)
             .list()
             .state(State::Open)
             .per_page(100)
             .send()
-            .await?;
+            .await?
+            .into_stream(&octocrab);
+        pin!(stream);
 
-        let filtered_issues: Vec<KudosIssue> = page
-            .items
-            .into_iter()
-            .filter_map(|issue| {
-                issue
+        let filtered_issues: Vec<KudosIssue> = stream
+            .try_filter_map(|issue| async move {
+                Ok(issue
                     .pull_request
                     .is_none()
-                    .then(|| KudosIssue::from(issue))
+                    .then(|| KudosIssue::from(issue)))
             })
-            .collect();
+            .try_collect()
+            .await?;
 
         info!("Number of open issues: {}", filtered_issues.len());
         if filtered_issues.is_empty() {

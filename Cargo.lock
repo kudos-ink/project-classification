@@ -1154,6 +1154,7 @@ dependencies = [
  "chrono",
  "either",
  "futures",
+ "futures-core",
  "futures-util",
  "http",
  "http-body",
@@ -1688,6 +1689,7 @@ name = "shared"
 version = "0.1.0"
 dependencies = [
  "chrono",
+ "futures-util",
  "lambda_http",
  "octocrab",
  "serde",
