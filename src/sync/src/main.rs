@@ -23,11 +23,6 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
         Error::from("Error parsing payload JSON")
     })?;
 
-    let secret = &env::var("SECRET")?;
-    if payload.secret != *secret {
-        return Err(Error::from("Error: secrets don't match"));
-    }
-
     let pool = PgPool::connect(&env::var("DATABASE_URL")?).await?;
 
     // get project id - need to ensure that name and slug are unique!

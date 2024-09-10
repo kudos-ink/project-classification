@@ -67,13 +67,11 @@ jobs:
 
 
               PAYLOAD=$(jq -n \
-                  --arg secret "${{ secrets.SECRET_NAME }}" \
                   --arg project_slug "$PROJECT_SLUG" \
                   --arg project_name "$PROJECT_NAME" \
                   --argjson repos_to_add "$REPOS_TO_ADD" \
                   --argjson repos_to_remove "$REPOS_TO_REMOVE" \
                   '{
-                    secret: $secret,
                     project_slug: $project_slug,
                     project_name: $project_name,
                     repos_to_add: $repos_to_add,

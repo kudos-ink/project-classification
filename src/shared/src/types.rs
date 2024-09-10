@@ -79,7 +79,6 @@ pub struct ProjectAttributes {
 
 #[derive(Deserialize, Debug)]
 pub struct Payload {
-    pub secret: String,
     pub project_slug: String,
     pub project_name: String,
     pub repos_to_add: Vec<Repository>,
