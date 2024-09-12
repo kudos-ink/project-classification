@@ -1,5 +1,5 @@
 [package]
-name = "generate_payload"
+name = "generate_import_payload"
 version = "0.1.0"
 edition = "2021"
 

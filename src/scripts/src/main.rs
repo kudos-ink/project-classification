@@ -14,14 +14,14 @@ fn main() {
     let project_json =
         fs::read_to_string(project_json_path).expect("Failed to read project JSON file");
 
-    let payload_template = fs::read_to_string("../../src/import/payloads/template.json")
+    let payload_template = fs::read_to_string("src/import/payloads/template.json")
         .expect("Failed to read payload template");
 
     let full_payload =
         payload_template.replace("\"{body}\"", &serde_json::to_string(&project_json).unwrap());
 
     let output_path = format!(
-        "../../src/import/payloads/{}",
+        "src/import/payloads/{}",
         project_json_path.split('/').last().unwrap()
     );
     println!("This is the output path {}", &output_path);
