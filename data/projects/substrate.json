@@ -29,6 +29,6 @@
     "purposes": ["universal"],
     "stackLevels": ["offchain"],
     "technologies": ["typescript", "rust"],
-    "types": ["libraries"]
+    "types": ["library"]
   }
 }

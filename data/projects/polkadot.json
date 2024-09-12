@@ -7,7 +7,7 @@
     "docs": [
       { "label": "Polkadot Wiki", "url": "https://wiki.polkadot.network/" }
     ],
-    "explorer": ["https://polkadot.subscan.io/"],
+    "explorer": [{ "label": "Subscan", "url": "https://polkadot.subscan.io/" }],
     "repository": [
       {
         "label": "Polkadot SDK",
@@ -29,6 +29,6 @@
     "purposes": ["universal"],
     "stackLevels": ["protocol", "messaging", "runtime"],
     "technologies": ["typescript", "rust"],
-    "types": ["platform", "framework"]
+    "types": ["platform"]
   }
 }
