@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "src/import",
+    "src/sync",
+    "src/shared",
+    "src/scripts"
+]

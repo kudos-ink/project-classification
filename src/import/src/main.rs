@@ -1,0 +1,30 @@
+use lambda_http::{run, service_fn, tracing, Body, Error, Request, Response};
+use shared::{extract_project, import_repositories, insert_project};
+use sqlx::postgres::PgPool;
+use std::env;
+
+async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
+    let project = extract_project(event)?;
+    let pool = PgPool::connect(&env::var("DATABASE_URL")?).await?;
+    let project_id = insert_project(&project, &pool).await?;
+
+    let total_issues_imported =
+        import_repositories(&project.links.repository, project_id, &pool).await?;
+
+    let resp = Response::builder()
+        .status(200)
+        .header("content-type", "text/plain")
+        .body(Body::Text(format!(
+            "Total issues imported: {}",
+            total_issues_imported
+        )))
+        .map_err(Box::new)?;
+    Ok(resp)
+}
+
+#[tokio::main]
+async fn main() -> Result<(), Error> {
+    tracing::init_default_subscriber();
+
+    run(service_fn(function_handler)).await
+}
