@@ -58,15 +58,26 @@ pub async fn import_repositories(
         let repo_info = RepoInfo::from_url(&repo.url)
             .ok_or_else(|| Error::from("Couldn't extract repo info from url"))?;
 
+        let repo_data = octocrab
+            .repos(&repo_info.owner, &repo_info.name)
+            .get()
+            .await?;
+
+        let language = repo_data
+            .language
+            .ok_or_else(|| Error::from("No repo language"))?;
+
         let repo_query = repo.insert_respository_query();
 
         let repo_row = sqlx::query(repo_query)
             .bind(&repo.label)
-            .bind(project_id)
+            .bind(&repo_info.name)
             .bind(format!(
                 "https://github.com/{}/{}",
                 &repo_info.owner, &repo_info.name
             ))
+            .bind(&language)
+            .bind(project_id)
             .fetch_one(pool)
             .await?;
 
