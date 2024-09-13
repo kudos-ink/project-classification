@@ -26,11 +26,11 @@ jobs:
           if [ "$FILE_STATUS" == "A" ]; then
             echo "Action: Create new entry for $FILE_PATH"
 
-            REPOS=$(jq '{repository: .links.repository}' "$FILE_PATH")
+            PROJECT=$(jq '.' "$FILE_PATH")
 
             RESPONSE=$(curl -s -X POST "${{ secrets.CREATE_URL }}" \
               -H "Content-Type: application/json" \
-              -d "$REPOS")
+              -d "$PROJECT")
 
             echo "Response from POST request: $RESPONSE"
 
