@@ -5,8 +5,8 @@ use lambda_http::{
     Body, Error, Request,
 };
 use octocrab::{params::State, Octocrab};
-use sqlx::{Pool, Postgres, Row};
-use std::env;
+use sqlx::{Postgres, Row, Transaction};
+use std::{collections::HashMap, env};
 
 use futures_util::TryStreamExt;
 use tokio::pin;
@@ -27,7 +27,10 @@ pub fn extract_project(event: Request) -> Result<Project, Error> {
     Ok(project)
 }
 
-pub async fn insert_project(project: &Project, pool: &Pool<Postgres>) -> Result<i32, Error> {
+pub async fn insert_project(
+    project: &Project,
+    tx: &mut Transaction<'_, Postgres>,
+) -> Result<i32, Error> {
     let query = project.new_project_query();
 
     let project_row = sqlx::query(query)
@@ -37,7 +40,7 @@ pub async fn insert_project(project: &Project, pool: &Pool<Postgres>) -> Result<
         .bind(&project.attributes.purposes)
         .bind(&project.attributes.stack_levels)
         .bind(&project.attributes.technologies)
-        .fetch_one(pool)
+        .fetch_one(&mut **tx)
         .await?;
 
     let project_id: i32 = project_row.get("id");
@@ -48,7 +51,7 @@ pub async fn insert_project(project: &Project, pool: &Pool<Postgres>) -> Result<
 pub async fn import_repositories(
     repos_to_import: &Vec<Repository>,
     project_id: i32,
-    pool: &Pool<Postgres>,
+    tx: &mut Transaction<'_, Postgres>,
 ) -> Result<u64, Error> {
     let token = env::var("GITHUB_TOKEN")?;
     let octocrab = Octocrab::builder().personal_token(token).build()?;
@@ -78,7 +81,7 @@ pub async fn import_repositories(
             ))
             .bind(&language)
             .bind(project_id)
-            .fetch_one(pool)
+            .fetch_one(&mut **tx)
             .await?;
 
         let repo_id: i32 = repo_row.get("id");
@@ -113,21 +116,33 @@ pub async fn import_repositories(
             .enumerate()
             .map(|(i, _)| {
                 format!(
-                    "(${}, ${}, ${}, ${}, ${})",
-                    i * 5 + 1,
-                    i * 5 + 2,
-                    i * 5 + 3,
-                    i * 5 + 4,
-                    i * 5 + 5
+                    "(${}, ${}, ${}, ${}, ${}, ${}, ${})",
+                    i * 7 + 1,
+                    i * 7 + 2,
+                    i * 7 + 3,
+                    i * 7 + 4,
+                    i * 7 + 5,
+                    i * 7 + 6,
+                    i * 7 + 7,
                 )
             })
             .collect::<Vec<_>>()
             .join(", ");
 
         let query_string = format!(
-            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at) VALUES {}",
+            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id) VALUES {}",
             placeholders
         );
+
+        let user_rows = sqlx::query("SELECT id, username FROM users")
+            .fetch_all(&mut **tx)
+            .await?;
+
+        let mut username_to_id: HashMap<String, i32> = HashMap::new();
+
+        for row in user_rows {
+            username_to_id.insert(row.get("username"), row.get("id"));
+        }
 
         let mut insert_issues_query = sqlx::query(&query_string);
 
@@ -138,9 +153,18 @@ pub async fn import_repositories(
                 .bind(issue.labels)
                 .bind(repo_id)
                 .bind(issue.issue_created_at)
+                .bind(issue.issue_closed_at)
+                .bind(if let Some(assignee) = issue.assignee {
+                    username_to_id.get(&assignee)
+                } else {
+                    None
+                })
         }
 
-        let issues_inserted_count = insert_issues_query.execute(pool).await?.rows_affected();
+        let issues_inserted_count = insert_issues_query
+            .execute(&mut **tx)
+            .await?
+            .rows_affected();
 
         total_issues_imported += issues_inserted_count;
     }

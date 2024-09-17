@@ -24,12 +24,13 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     })?;
 
     let pool = PgPool::connect(&env::var("DATABASE_URL")?).await?;
+    let mut tx: sqlx::Transaction<'_, sqlx::Postgres> = pool.begin().await?;
 
     // get project id - need to ensure that name and slug are unique!
     let project_row = sqlx::query("SELECT id FROM projects WHERE name = $1 AND slug = $2")
         .bind(payload.project_name)
         .bind(payload.project_slug)
-        .fetch_one(&pool)
+        .fetch_one(&mut *tx)
         .await?;
 
     let project_id: i32 = project_row.get("id");
@@ -41,7 +42,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
         .bind(attributes.technologies)
         .bind(attributes.types)
         .bind(project_id)
-        .execute(&pool).await?;
+        .execute(&mut *tx).await?;
     }
 
     for repo in payload.repos_to_remove {
@@ -49,7 +50,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
         // This should automatically cascade to issues table
         sqlx::query("DELETE FROM repositories WHERE url = $1")
             .bind(repo.url)
-            .execute(&pool)
+            .execute(&mut *tx)
             .await?;
     }
 
@@ -63,7 +64,9 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     }
 
     let total_issues_imported =
-        import_repositories(&payload.repos_to_add, project_id, &pool).await?;
+        import_repositories(&payload.repos_to_add, project_id, &mut tx).await?;
+
+    tx.commit().await?;
 
     let resp = Response::builder()
         .status(200)

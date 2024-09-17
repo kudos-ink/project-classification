@@ -29,7 +29,9 @@ pub struct KudosIssue {
     pub html_url: String,
     pub issue_created_at: DateTime<Utc>,
     pub issue_updated_at: DateTime<Utc>,
-    pub user: String,
+    pub issue_closed_at: Option<DateTime<Utc>>,
+    pub creator: String,
+    pub assignee: Option<String>,
     pub labels: Vec<String>,
 }
 
@@ -41,7 +43,9 @@ impl From<Issue> for KudosIssue {
             html_url: value.html_url.to_string(),
             issue_created_at: value.created_at,
             issue_updated_at: value.updated_at,
-            user: value.user.login,
+            issue_closed_at: None,
+            creator: value.user.login,
+            assignee: value.assignee.map(|assignee| assignee.login),
             labels: value
                 .labels
                 .iter()

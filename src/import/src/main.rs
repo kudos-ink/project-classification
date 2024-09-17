@@ -6,10 +6,15 @@ use std::env;
 async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     let project = extract_project(event)?;
     let pool = PgPool::connect(&env::var("DATABASE_URL")?).await?;
-    let project_id = insert_project(&project, &pool).await?;
+
+    let mut tx: sqlx::Transaction<'_, sqlx::Postgres> = pool.begin().await?;
+
+    let project_id = insert_project(&project, &mut tx).await?;
 
     let total_issues_imported =
-        import_repositories(&project.links.repository, project_id, &pool).await?;
+        import_repositories(&project.links.repository, project_id, &mut tx).await?;
+
+    tx.commit().await?;
 
     let resp = Response::builder()
         .status(200)
