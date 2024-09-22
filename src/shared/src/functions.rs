@@ -4,7 +4,7 @@ use lambda_http::{
     tracing::{error, info},
     Body, Error, Request,
 };
-use octocrab::{models::issues::Issue, params::State, Octocrab};
+use octocrab::{params::State, Octocrab};
 use sqlx::{Postgres, Row, Transaction};
 use std::{collections::HashMap, env};
 

@@ -1,7 +1,6 @@
 /src/import/.env
 /src/import/src/.DS_Store
 /src/sync/.env
-/src/import/payloads
+/src/notification_triggered/.env
 /src/import/templates
-/src/sync/payloads
 /target

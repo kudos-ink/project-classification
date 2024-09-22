@@ -1,11 +1,10 @@
-use std::env;
-
 use lambda_http::{run, service_fn, tracing, Body, Error, Request, Response};
 use octocrab::Octocrab;
 use shared::functions::{extract_issue, get_username_map};
 use shared::types::KudosIssue;
 use sqlx::PgPool;
-use sqlx::{Postgres, Row, Transaction};
+use sqlx::Row;
+use std::env;
 
 /*
 Receives issue details as payload
@@ -42,7 +41,21 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
 
     let username_to_id = get_username_map(&mut tx).await?;
 
-    let insert_count = sqlx::query("INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)")
+    let insert_count = sqlx::query(
+        r#"
+        INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        ON CONFLICT (repository_id, number)
+        DO UPDATE SET
+            title = EXCLUDED.title,
+            labels = EXCLUDED.labels,
+            repository_id = EXCLUDED.repository_id,
+            issue_created_at = EXCLUDED.issue_created_at,
+            issue_closed_at = EXCLUDED.issue_closed_at,
+            assignee_id = EXCLUDED.assignee_id,
+            open = EXCLUDED.open
+        "#
+    )
      .bind(&kudos_issue.number)
      .bind(&kudos_issue.title)
      .bind(&kudos_issue.labels)
@@ -57,8 +70,8 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     .bind(&kudos_issue.issue_closed_at.is_none())
     .execute(&mut *tx).await?.rows_affected();
 
-    // Return something that implements IntoResponse.
-    // It will be serialized to the right response event automatically by the runtime
+    tx.commit().await?;
+
     let resp = Response::builder()
         .status(200)
         .header("content-type", "text/html")
