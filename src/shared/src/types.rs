@@ -43,7 +43,7 @@ impl From<Issue> for KudosIssue {
             html_url: value.html_url.to_string(),
             issue_created_at: value.created_at,
             issue_updated_at: value.updated_at,
-            issue_closed_at: None,
+            issue_closed_at: value.closed_at,
             creator: value.user.login,
             assignee: value.assignee.map(|assignee| assignee.login),
             labels: value
@@ -111,4 +111,11 @@ impl Project {
 #[derive(Deserialize, Debug)]
 pub struct ProjectLinks {
     pub repository: Vec<Repository>,
+}
+
+#[derive(Deserialize, Debug)]
+pub struct KudosIssuePayload {
+    pub owner: String,
+    pub repo: String,
+    pub issue_number: u64,
 }

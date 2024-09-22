@@ -4,5 +4,6 @@ members = [
     "src/import",
     "src/sync",
     "src/shared",
-    "src/scripts"
+    "src/scripts",
+    "src/notification_triggered"
 ]

@@ -1,10 +1,10 @@
-use crate::types::{KudosIssue, Project, RepoInfo, Repository};
+use crate::types::{KudosIssue, KudosIssuePayload, Project, RepoInfo, Repository};
 
 use lambda_http::{
     tracing::{error, info},
     Body, Error, Request,
 };
-use octocrab::{params::State, Octocrab};
+use octocrab::{models::issues::Issue, params::State, Octocrab};
 use sqlx::{Postgres, Row, Transaction};
 use std::{collections::HashMap, env};
 
@@ -25,6 +25,22 @@ pub fn extract_project(event: Request) -> Result<Project, Error> {
     })?;
 
     Ok(project)
+}
+
+pub fn extract_issue(event: Request) -> Result<KudosIssuePayload, Error> {
+    let request_body = event.body();
+    let json_string = (match request_body {
+        Body::Text(json) => Some(json),
+        _ => None,
+    })
+    .ok_or_else(|| Error::from("Invalid request body type"))?;
+
+    let issue_details: KudosIssuePayload = serde_json::from_str(&json_string).map_err(|e| {
+        error!("Error parsing JSON: {}", e);
+        Error::from("Error parsing JSON")
+    })?;
+
+    Ok(issue_details)
 }
 
 pub async fn insert_project(
@@ -134,15 +150,7 @@ pub async fn import_repositories(
             placeholders
         );
 
-        let user_rows = sqlx::query("SELECT id, username FROM users")
-            .fetch_all(&mut **tx)
-            .await?;
-
-        let mut username_to_id: HashMap<String, i32> = HashMap::new();
-
-        for row in user_rows {
-            username_to_id.insert(row.get("username"), row.get("id"));
-        }
+        let username_to_id = get_username_map(tx).await?;
 
         let mut insert_issues_query = sqlx::query(&query_string);
 
@@ -169,4 +177,19 @@ pub async fn import_repositories(
         total_issues_imported += issues_inserted_count;
     }
     Ok(total_issues_imported)
+}
+
+pub async fn get_username_map(
+    tx: &mut Transaction<'_, Postgres>,
+) -> Result<HashMap<String, i32>, Error> {
+    let user_rows = sqlx::query("SELECT id, username FROM users")
+        .fetch_all(&mut **tx)
+        .await?;
+
+    let mut username_to_id: HashMap<String, i32> = HashMap::new();
+
+    for row in user_rows {
+        username_to_id.insert(row.get("username"), row.get("id"));
+    }
+    Ok(username_to_id)
 }

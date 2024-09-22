@@ -676,6 +676,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "gh-notification-triggered"
+version = "0.1.0"
+dependencies = [
+ "chrono",
+ "lambda_http",
+ "octocrab",
+ "serde",
+ "serde_json",
+ "shared",
+ "sqlx",
+ "tokio",
+]
+
+[[package]]
 name = "gh-sync-repositories"
 version = "0.1.0"
 dependencies = [
