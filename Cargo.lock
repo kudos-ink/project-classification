@@ -680,7 +680,7 @@ name = "gh-notification-triggered"
 version = "0.1.0"
 dependencies = [
  "chrono",
- "lambda_http",
+ "lambda_runtime",
  "octocrab",
  "serde",
  "serde_json",

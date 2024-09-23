@@ -1,4 +1,4 @@
-use crate::types::{ImportType, KudosIssue, KudosIssuePayload, Project, RepoInfo, Repository};
+use crate::types::{ImportType, KudosIssue, Project, RepoInfo, Repository};
 
 use lambda_http::{
     tracing::{error, info},
@@ -25,22 +25,6 @@ pub fn extract_project(event: Request) -> Result<Project, Error> {
     })?;
 
     Ok(project)
-}
-
-pub fn extract_issue(event: Request) -> Result<KudosIssuePayload, Error> {
-    let request_body = event.body();
-    let json_string = (match request_body {
-        Body::Text(json) => Some(json),
-        _ => None,
-    })
-    .ok_or_else(|| Error::from("Invalid request body type"))?;
-
-    let issue_details: KudosIssuePayload = serde_json::from_str(&json_string).map_err(|e| {
-        error!("Error parsing JSON: {}", e);
-        Error::from("Error parsing JSON")
-    })?;
-
-    Ok(issue_details)
 }
 
 pub async fn insert_project(

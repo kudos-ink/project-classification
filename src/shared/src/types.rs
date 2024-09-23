@@ -114,6 +114,12 @@ pub struct ProjectLinks {
 }
 
 #[derive(Deserialize, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct AsyncLambdaPayload {
+    pub response_payload: KudosIssuePayload,
+}
+
+#[derive(Deserialize, Debug)]
 pub struct KudosIssuePayload {
     pub owner: String,
     pub repo: String,
@@ -123,4 +129,8 @@ pub struct KudosIssuePayload {
 pub enum ImportType {
     Import,
     Sync,
+}
+#[derive(Serialize, Debug)]
+pub struct Res {
+    pub message: String,
 }
