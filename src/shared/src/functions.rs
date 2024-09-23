@@ -1,4 +1,4 @@
-use crate::types::{KudosIssue, KudosIssuePayload, Project, RepoInfo, Repository};
+use crate::types::{ImportType, KudosIssue, KudosIssuePayload, Project, RepoInfo, Repository};
 
 use lambda_http::{
     tracing::{error, info},
@@ -65,6 +65,7 @@ pub async fn insert_project(
 }
 
 pub async fn import_repositories(
+    import_type: ImportType,
     repos_to_import: &Vec<Repository>,
     project_id: i32,
     tx: &mut Transaction<'_, Postgres>,
@@ -73,7 +74,7 @@ pub async fn import_repositories(
     let octocrab = Octocrab::builder().personal_token(token).build()?;
     let mut total_issues_imported = 0;
 
-    for repo in repos_to_import.iter() {
+    for (i, repo) in repos_to_import.iter().enumerate() {
         let repo_info = RepoInfo::from_url(&repo.url)
             .ok_or_else(|| Error::from("Couldn't extract repo info from url"))?;
 
@@ -81,6 +82,18 @@ pub async fn import_repositories(
             .repos(&repo_info.owner, &repo_info.name)
             .get()
             .await?;
+
+        let avatar_url = repo_data
+            .owner
+            .and_then(|owner| Some(owner.avatar_url.to_string()));
+
+        if i == 0 && matches!(import_type, ImportType::Import) {
+            sqlx::query("UPDATE projects SET avatar = $1 WHERE id = $2")
+                .bind(avatar_url)
+                .bind(project_id)
+                .execute(&mut **tx)
+                .await?;
+        }
 
         let language = repo_data
             .language

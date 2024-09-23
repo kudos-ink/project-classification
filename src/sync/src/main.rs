@@ -4,9 +4,10 @@ use lambda_http::{
     Body, Error, Request, Response,
 };
 use serde_json;
-
-use shared::functions::import_repositories;
-use shared::types::Payload;
+use shared::{
+    functions::import_repositories,
+    types::{ImportType, Payload},
+};
 use sqlx::postgres::PgPool;
 use sqlx::Row;
 use std::env;
@@ -65,7 +66,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     }
 
     let total_issues_imported =
-        import_repositories(&payload.repos_to_add, project_id, &mut tx).await?;
+        import_repositories(ImportType::Sync, &payload.repos_to_add, project_id, &mut tx).await?;
 
     tx.commit().await?;
 
