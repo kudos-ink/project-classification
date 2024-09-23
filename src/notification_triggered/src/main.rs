@@ -1,6 +1,8 @@
 use lambda_http::{run, service_fn, tracing, Body, Error, Request, Response};
 use octocrab::Octocrab;
 use shared::functions::{extract_issue, get_username_map};
+// use shared::functions::extract_issue;
+// use shared::functions::get_username_map;
 use shared::types::KudosIssue;
 use sqlx::PgPool;
 use sqlx::Row;

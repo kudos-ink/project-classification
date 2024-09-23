@@ -5,7 +5,8 @@ use lambda_http::{
 };
 use serde_json;
 
-use shared::{import_repositories, Payload};
+use shared::functions::import_repositories;
+use shared::types::Payload;
 use sqlx::postgres::PgPool;
 use sqlx::Row;
 use std::env;

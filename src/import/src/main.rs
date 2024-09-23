@@ -1,5 +1,5 @@
 use lambda_http::{run, service_fn, tracing, Body, Error, Request, Response};
-use shared::{extract_project, import_repositories, insert_project};
+use shared::functions::{extract_project, import_repositories, insert_project};
 use sqlx::postgres::PgPool;
 use std::env;
 
