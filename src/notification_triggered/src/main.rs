@@ -1,9 +1,7 @@
-use lambda_http::{run, service_fn, tracing, Body, Error, Request, Response};
+use lambda_runtime::{run, service_fn, tracing, Error, LambdaEvent};
 use octocrab::Octocrab;
-use shared::functions::{extract_issue, get_username_map};
-// use shared::functions::extract_issue;
-// use shared::functions::get_username_map;
-use shared::types::KudosIssue;
+use shared::functions::get_username_map;
+use shared::types::{AsyncLambdaPayload, KudosIssue, Res};
 use sqlx::PgPool;
 use sqlx::Row;
 use std::env;
@@ -14,8 +12,8 @@ Fetches the latest version of that record from GitHub
 Inserts it into the database
 */
 
-async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
-    let issue_details = extract_issue(event)?;
+async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res, Error> {
+    let issue_details = event.payload.response_payload;
 
     let pool = PgPool::connect(&env::var("DATABASE_URL")?).await?;
     let mut tx: sqlx::Transaction<'_, sqlx::Postgres> = pool.begin().await?;
@@ -74,12 +72,9 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
 
     tx.commit().await?;
 
-    let resp = Response::builder()
-        .status(200)
-        .header("content-type", "text/html")
-        .body(Body::Text(format!("Insert count {}", insert_count)))
-        .map_err(Box::new)?;
-    Ok(resp)
+    Ok(Res {
+        message: format!("Insert count {}", insert_count),
+    })
 }
 
 #[tokio::main]
