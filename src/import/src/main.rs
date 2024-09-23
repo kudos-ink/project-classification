@@ -1,5 +1,8 @@
 use lambda_http::{run, service_fn, tracing, Body, Error, Request, Response};
-use shared::functions::{extract_project, import_repositories, insert_project};
+use shared::{
+    functions::{extract_project, import_repositories, insert_project},
+    types::ImportType,
+};
 use sqlx::postgres::PgPool;
 use std::env;
 
@@ -11,8 +14,13 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
 
     let project_id = insert_project(&project, &mut tx).await?;
 
-    let total_issues_imported =
-        import_repositories(&project.links.repository, project_id, &mut tx).await?;
+    let total_issues_imported = import_repositories(
+        ImportType::Import,
+        &project.links.repository,
+        project_id,
+        &mut tx,
+    )
+    .await?;
 
     tx.commit().await?;
 

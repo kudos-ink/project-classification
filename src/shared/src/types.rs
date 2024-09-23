@@ -119,3 +119,8 @@ pub struct KudosIssuePayload {
     pub repo: String,
     pub issue_number: u64,
 }
+
+pub enum ImportType {
+    Import,
+    Sync,
+}
