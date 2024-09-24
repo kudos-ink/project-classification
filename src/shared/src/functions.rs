@@ -5,6 +5,7 @@ use lambda_http::{
     Body, Error, Request,
 };
 use octocrab::{params::State, Octocrab};
+use serde_json::Value;
 use sqlx::{Postgres, Row, Transaction};
 use std::{collections::HashMap, env};
 
@@ -189,4 +190,31 @@ pub async fn get_username_map(
         username_to_id.insert(row.get("username"), row.get("id"));
     }
     Ok(username_to_id)
+}
+
+pub async fn get_open_issues_for_repo(
+    octocrab: &Octocrab,
+    owner: &str,
+    repo: &str,
+) -> Result<Vec<KudosIssue>, Error> {
+    let stream = octocrab
+        .issues(owner, repo)
+        .list()
+        .state(State::Open)
+        .per_page(100)
+        .send()
+        .await?
+        .into_stream(&octocrab);
+    pin!(stream);
+
+    let filtered_issues: Vec<KudosIssue> = stream
+        .try_filter_map(|issue| async move {
+            Ok(issue
+                .pull_request
+                .is_none()
+                .then(|| KudosIssue::from(issue)))
+        })
+        .try_collect()
+        .await?;
+    Ok(filtered_issues)
 }
