@@ -1,0 +1,66 @@
+name: Rebuild and Redeploy Lambda Functions
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Rust
+      uses: dtolnay/rust-toolchain@stable
+      with:
+          toolchain: stable
+
+    - name: Install Cargo Lambda with pip3
+      run: |
+        pip3 install cargo-lambda
+
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Set up environment to detect changes
+      id: changes
+      run: |
+        echo "CHANGED_IMPORT=false" >> $GITHUB_ENV
+        echo "CHANGED_SYNC=false" >> $GITHUB_ENV
+        echo "CHANGED_NOTIFICATION=false" >> $GITHUB_ENV
+        if [[ $(git diff --name-only HEAD^ HEAD | grep -E 'src/import|src/shared') ]]; then
+          echo "CHANGED_IMPORT=true" >> $GITHUB_ENV
+        fi
+        if [[ $(git diff --name-only HEAD^ HEAD | grep -E 'src/sync|src/shared') ]]; then
+          echo "CHANGED_SYNC=true" >> $GITHUB_ENV
+        fi
+        if [[ $(git diff --name-only HEAD^ HEAD | grep -E 'src/notification_triggered|src/shared') ]]; then
+          echo "CHANGED_NOTIFICATION=true" >> $GITHUB_ENV
+        fi
+
+    - name: Build and deploy Import Lambda function
+      if: env.CHANGED_IMPORT == 'true'
+      run: |
+        cd src/import
+        cargo lambda build --release
+        cargo lambda deploy gh-import-issues --region us-east-1 --enable-function-url
+
+    - name: Build and deploy Sync Lambda function
+      if: env.CHANGED_SYNC == 'true'
+      run: |
+        cd src/sync
+        cargo lambda build --release
+        cargo lambda deploy gh-sync-repositories --region us-east-1 --enable-function-url
+
+    - name: Build and deploy Notification Lambda function
+      if: env.CHANGED_NOTIFICATION == 'true'
+      run: |
+        cd src/notification_triggered
+        cargo lambda build --release
+        cargo lambda deploy gh-notification-lambda-function --region eu-west-1
