@@ -72,7 +72,7 @@ impl Repository {
         VALUES ($1, $2, $3, $4, $5)
         RETURNING id;
         "#;
-        return query_string;
+        query_string
     }
 }
 
