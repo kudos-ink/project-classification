@@ -53,14 +53,14 @@ jobs:
       run: |
         cd src/import
         cargo lambda build --release
-        cargo lambda deploy gh-import-issues --region us-east-1 --enable-function-url
+        cargo lambda deploy gh-import-issues --region us-east-1 --enable-function-url > /dev/null 2>&1;
 
     - name: Build and deploy Sync Lambda function
       if: env.CHANGED_SYNC == 'true'
       run: |
         cd src/sync
         cargo lambda build --release
-        cargo lambda deploy gh-sync-repositories --region us-east-1 --enable-function-url
+        cargo lambda deploy gh-sync-repositories --region us-east-1 --enable-function-url > /dev/null 2>&1;
 
     - name: Build and deploy Notification Lambda function
       if: env.CHANGED_NOTIFICATION == 'true'
