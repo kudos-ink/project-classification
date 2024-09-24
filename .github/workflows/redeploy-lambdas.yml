@@ -67,4 +67,4 @@ jobs:
       run: |
         cd src/notification_triggered
         cargo lambda build --release
-        cargo lambda deploy gh-notification-lambda-function --region eu-west-1
+        cargo lambda deploy gh-notification-triggered --region eu-west-1
