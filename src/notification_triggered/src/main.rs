@@ -43,8 +43,8 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
 
     let insert_count = sqlx::query(
         r#"
-        INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8)
+        INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open, certified)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         ON CONFLICT (repository_id, number)
         DO UPDATE SET
             title = EXCLUDED.title,
@@ -53,7 +53,8 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
             issue_created_at = EXCLUDED.issue_created_at,
             issue_closed_at = EXCLUDED.issue_closed_at,
             assignee_id = EXCLUDED.assignee_id,
-            open = EXCLUDED.open
+            open = EXCLUDED.open,
+            certified = EXCLUDED.certified
         "#
     )
      .bind(&kudos_issue.number)
@@ -68,6 +69,7 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
                     None
                 })
     .bind(&kudos_issue.issue_closed_at.is_none())
+    .bind(&kudos_issue.certified)
     .execute(&mut *tx).await?.rows_affected();
 
     tx.commit().await?;

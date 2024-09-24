@@ -129,21 +129,22 @@ pub async fn import_repositories(
             .enumerate()
             .map(|(i, _)| {
                 format!(
-                    "(${}, ${}, ${}, ${}, ${}, ${}, ${})",
-                    i * 7 + 1,
-                    i * 7 + 2,
-                    i * 7 + 3,
-                    i * 7 + 4,
-                    i * 7 + 5,
-                    i * 7 + 6,
-                    i * 7 + 7,
+                    "(${}, ${}, ${}, ${}, ${}, ${}, ${}, ${})",
+                    i * 8 + 1,
+                    i * 8 + 2,
+                    i * 8 + 3,
+                    i * 8 + 4,
+                    i * 8 + 5,
+                    i * 8 + 6,
+                    i * 8 + 7,
+                    i * 8 + 8,
                 )
             })
             .collect::<Vec<_>>()
             .join(", ");
 
         let query_string = format!(
-            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id) VALUES {}",
+            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, certified) VALUES {}",
             placeholders
         );
 
@@ -164,6 +165,7 @@ pub async fn import_repositories(
                 } else {
                     None
                 })
+                .bind(issue.certified)
         }
 
         let issues_inserted_count = insert_issues_query
