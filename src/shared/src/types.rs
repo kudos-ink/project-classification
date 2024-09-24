@@ -32,11 +32,18 @@ pub struct KudosIssue {
     pub issue_closed_at: Option<DateTime<Utc>>,
     pub creator: String,
     pub assignee: Option<String>,
+    pub certified: bool,
     pub labels: Vec<String>,
 }
 
 impl From<Issue> for KudosIssue {
     fn from(value: Issue) -> Self {
+        let labels = value
+            .labels
+            .iter()
+            .map(|label| label.name.clone())
+            .collect::<Vec<String>>();
+
         KudosIssue {
             number: value.number as i64,
             title: value.title,
@@ -46,11 +53,8 @@ impl From<Issue> for KudosIssue {
             issue_closed_at: value.closed_at,
             creator: value.user.login,
             assignee: value.assignee.map(|assignee| assignee.login),
-            labels: value
-                .labels
-                .iter()
-                .map(|label| label.name.clone())
-                .collect::<Vec<String>>(),
+            certified: labels.contains(&String::from("kudos")),
+            labels,
         }
     }
 }
