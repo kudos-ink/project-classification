@@ -16,22 +16,6 @@ jobs:
       with:
         fetch-depth: 2
 
-    - name: Install Rust
-      uses: dtolnay/rust-toolchain@stable
-      with:
-          toolchain: stable
-
-    - name: Install Cargo Lambda with pip3
-      run: |
-        pip3 install cargo-lambda
-
-    - name: Configure AWS credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
     - name: Set up environment to detect changes
       id: changes
       run: |
@@ -47,6 +31,25 @@ jobs:
         if [[ $(git diff --name-only HEAD^ HEAD | grep -E 'src/notification_triggered|src/shared') ]]; then
           echo "CHANGED_NOTIFICATION=true" >> $GITHUB_ENV
         fi
+
+    - name: Install Rust
+      if: env.CHANGED_IMPORT == 'true' || env.CHANGED_SYNC == 'true' || env.CHANGED_NOTIFICATION == 'true'
+      uses: dtolnay/rust-toolchain@stable
+      with:
+          toolchain: stable
+
+    - name: Install Cargo Lambda with pip3
+      if: env.CHANGED_IMPORT == 'true' || env.CHANGED_SYNC == 'true' || env.CHANGED_NOTIFICATION == 'true'
+      run: |
+        pip3 install cargo-lambda
+
+    - name: Configure AWS credentials
+      if: env.CHANGED_IMPORT == 'true' || env.CHANGED_SYNC == 'true' || env.CHANGED_NOTIFICATION == 'true'
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: us-east-1
 
     - name: Build and deploy Import Lambda function
       if: env.CHANGED_IMPORT == 'true'
