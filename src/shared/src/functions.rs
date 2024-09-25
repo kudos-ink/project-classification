@@ -82,7 +82,10 @@ pub async fn import_repositories(
         let language = repo_data
             .language
             .ok_or_else(|| Error::from("No repo language"))?
-            .to_string();
+            .as_str()
+            .ok_or_else(|| Error::from("Can't get language as string"))?
+            .to_string()
+            .to_lowercase();
 
         let repo_query = repo.insert_respository_query();
 
