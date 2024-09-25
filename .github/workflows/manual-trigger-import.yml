@@ -35,7 +35,7 @@ jobs:
 
     - name: Generate import payload
       run: |
-      cargo run -p generate_import_payload -- ${{ github.event.inputs.json_file }}
+        cargo run -p generate_import_payload -- ${{ github.event.inputs.json_file }}
 
     - name: Invoke remote lambda function
       run: |
