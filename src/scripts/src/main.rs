@@ -5,7 +5,7 @@ use std::process;
 fn main() {
     let args: Vec<String> = env::args().collect();
     if args.len() != 2 {
-        eprintln!("Usage: generate_payload <path_to_project_json>");
+        eprintln!("cargo run -p generate_import_payload -- data/projects/kudos.json");
         process::exit(1);
     }
 
