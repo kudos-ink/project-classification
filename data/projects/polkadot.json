@@ -28,7 +28,7 @@
     "networks": [],
     "purposes": ["universal"],
     "stackLevels": ["protocol", "messaging", "runtime"],
-    "technologies": ["typescript", "rust"],
+    "technologies": ["substrate"],
     "types": ["platform"]
   }
 }
