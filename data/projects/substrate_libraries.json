@@ -5,7 +5,8 @@
   "links": {
     "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
     "docs": [
-      { "label": "Substrate Docs", "url": "https://docs.substrate.io/" }
+      { "label": "Substrate Docs", "url": "https://docs.substrate.io/" },
+      { "label": "PAPI Docs", "url": "https://papi.how/" },
     ],
     "explorer": [],
     "repository": [
@@ -20,6 +21,10 @@
       {
         "label": "PolkadotJS Docs",
         "url": "https://github.com/polkadot-js/docs"
+      },
+      {
+        "label": "Polkadot-API",
+        "url": "https://github.com/polkadot-api/polkadot-api"
       }
     ],
     "social": []
