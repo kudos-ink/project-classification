@@ -106,7 +106,7 @@ pub async fn import_repositories(
         let stream = octocrab
             .issues(repo_info.owner, repo_info.name)
             .list()
-            .state(State::Open)
+            .state(State::All)
             .per_page(100)
             .send()
             .await?
@@ -123,7 +123,6 @@ pub async fn import_repositories(
             .try_collect()
             .await?;
 
-        info!("Number of open issues: {}", filtered_issues.len());
         if filtered_issues.is_empty() {
             continue;
         }
@@ -133,23 +132,24 @@ pub async fn import_repositories(
             .enumerate()
             .map(|(i, _)| {
                 format!(
-                    "(${}, ${}, ${}, ${}, ${}, ${}, ${}, ${})",
-                    i * 8 + 1,
-                    i * 8 + 2,
-                    i * 8 + 3,
-                    i * 8 + 4,
-                    i * 8 + 5,
-                    i * 8 + 6,
-                    i * 8 + 7,
-                    i * 8 + 8,
+                    "(${}, ${}, ${}, ${}, ${}, ${}, ${}, ${}, ${})",
+                    i * 9 + 1,
+                    i * 9 + 2,
+                    i * 9 + 3,
+                    i * 9 + 4,
+                    i * 9 + 5,
+                    i * 9 + 6,
+                    i * 9 + 7,
+                    i * 9 + 8,
+                    i * 9 + 9,
                 )
             })
             .collect::<Vec<_>>()
             .join(", ");
 
         let query_string = format!(
-            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, certified) VALUES {}",
-            placeholders
+            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_id, certified) VALUES {}",
+            placeholdersq
         );
 
         let username_to_id = get_username_map(tx).await?;
@@ -164,6 +164,7 @@ pub async fn import_repositories(
                 .bind(repo_id)
                 .bind(issue.issue_created_at)
                 .bind(issue.issue_closed_at)
+                .bind(issue.issue_closed_at.is_none())
                 .bind(if let Some(assignee) = issue.assignee {
                     username_to_id.get(&assignee)
                 } else {

@@ -75,7 +75,7 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
     tx.commit().await?;
 
     Ok(Res {
-        message: format!("Insert count {}", insert_count),
+        message: format!("Insert/Update count {}", insert_count),
     })
 }
 
