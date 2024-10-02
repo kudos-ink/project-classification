@@ -1,0 +1,34 @@
+{
+  "name": "Substrate Libraries",
+  "slug": "substrate",
+  "description": "Substrate enables developers to quickly and easily build future proof blockchains optimized for any use case.",
+  "links": {
+    "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
+    "docs": [
+      { "label": "Substrate Docs", "url": "https://docs.substrate.io/" }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Subxt",
+        "url": "https://github.com/paritytech/subxt"
+      },
+      {
+        "label": "PolkadotJS API",
+        "url": "https://github.com/polkadot-js/api"
+      },
+      {
+        "label": "PolkadotJS Docs",
+        "url": "https://github.com/polkadot-js/docs"
+      }
+    ],
+    "social": []
+  },
+  "attributes": {
+    "networks": [],
+    "purposes": [],
+    "stackLevels": ["offchain"],
+    "technologies": ["substrate"],
+    "types": ["library"]
+  }
+}
