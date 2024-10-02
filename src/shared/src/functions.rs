@@ -149,7 +149,7 @@ pub async fn import_repositories(
 
         let query_string = format!(
             "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_id, certified) VALUES {}",
-            placeholdersq
+            placeholders
         );
 
         let username_to_id = get_username_map(tx).await?;
