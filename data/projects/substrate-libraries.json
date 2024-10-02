@@ -1,6 +1,6 @@
 {
   "name": "Substrate Libraries",
-  "slug": "substrate",
+  "slug": "substrate-libraries",
   "description": "Substrate enables developers to quickly and easily build future proof blockchains optimized for any use case.",
   "links": {
     "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
