@@ -12,11 +12,20 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
 
     let mut tx: sqlx::Transaction<'_, sqlx::Postgres> = pool.begin().await?;
 
-    // allow the import to be completely rerun by removing all data
-    sqlx::query("DELETE FROM projects WHERE slug = $1")
-        .bind(&project.slug)
-        .execute(&mut *tx)
-        .await?;
+    // delete all open issues related to a preexisting project
+    sqlx::query(
+        r#"
+        DELETE FROM issues
+        WHERE repository_id IN (
+                    SELECT repositories.id
+                    FROM repositories
+                    JOIN projects ON repositories.project_id = projects.id
+                    WHERE projects.slug = $1)
+        AND issues.open = true"#,
+    )
+    .bind(&project.slug)
+    .execute(&mut *tx)
+    .await?;
 
     let project_id = insert_project(&project, &mut tx).await?;
 

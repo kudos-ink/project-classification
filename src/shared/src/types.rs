@@ -70,6 +70,12 @@ impl Repository {
         let query_string = r#"
         INSERT INTO repositories (slug, name, url, language_slug, project_id)
         VALUES ($1, $2, $3, $4, $5)
+        ON CONFLICT (url)
+        DO UPDATE SET
+            slug = EXCLUDED.slug,
+            name = EXCLUDED.name,
+            project_id = EXCLUDED.project_id,
+            language_slug = EXCLUDED.language_slug
         RETURNING id;
         "#;
         query_string
@@ -106,6 +112,13 @@ impl Project {
         let query_string = r#"
         INSERT INTO projects (name, slug, types, purposes, stack_levels, technologies)
         VALUES ($1, $2, $3, $4, $5, $6)
+        ON CONFLICT (slug)
+        DO UPDATE SET
+            name = EXCLUDED.name,
+            types = EXCLUDED.types,
+            purposes = EXCLUDED.purposes,
+            stack_levels = EXCLUDED.stack_levels,
+            technologies = EXCLUDED.technologies
         RETURNING id;
         "#;
         query_string
