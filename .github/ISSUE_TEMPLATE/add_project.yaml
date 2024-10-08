@@ -59,7 +59,7 @@ body:
     attributes:
       label: Repositories
       description: "On each new line write the repository URLs with front end friendly label."
-      placeholder: "LABEL: Kudos Portal, URL: https://github.com/kudos-ink/portal"
+      placeholder: "Kudos Portal - https://github.com/kudos-ink/portal"
     validations:
       required: true
 
