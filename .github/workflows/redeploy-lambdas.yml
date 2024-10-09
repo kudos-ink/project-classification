@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    # Only run when changes occur in the src folder
+    paths:
+      - 'src/**'    # Only trigger on changes in src folder or any of its subdirectories
   workflow_dispatch:
 
 jobs:
