@@ -33,57 +33,49 @@ body:
     validations:
       required: true
 
-  - type: input
+  - type: textarea
     id: websites
     attributes:
       label: Websites
-      description: "Enter website URLs separated by commas."
+      description: "On each new line write the website URLs"
       placeholder: "https://morekudos.com"
-    validations:
-      required: true
 
-  - type: input
+  - type: textarea
     id: documentation
     attributes:
       label: Documentation
-      description: "Enter documentation URLs separated by commas."
-      placeholder: "https://github.com/kudos-ink"
-    validations:
-      required: true
+      description: "On each new line write the documentation URLs"
+      placeholder: "https://github.com/kudos-ink/docs"
 
-  - type: input
+  - type: textarea
     id: explorers
     attributes:
       label: Explorers
-      description: "Enter explorer URLs separated by commas."
-    validations:
-      required: true
+      description: "On each new line write the explorer URLs."
+      placeholder: "https://polkadot.subscan.io/"
 
-  - type: input
+  - type: textarea
     id: repositories
     attributes:
       label: Repositories
-      description: "Enter repository URLs separated by commas."
-      placeholder: "https://github.com/kudos-ink/portal, https://github.com/kudos-ink/issues-api"
+      description: "On each new line write the repository URLs with front end friendly label."
+      placeholder: "Kudos Portal - https://github.com/kudos-ink/portal"
     validations:
       required: true
 
-  - type: input
-    id: socialMedia
+  - type: textarea
+    id: social
     attributes:
       label: Social Media
-      description: "Enter social media URLs separated by commas."
+      description: "On each new line write the social media URLs."
       placeholder: "https://x.com/KudosPortal"
-    validations:
-      required: true
 
-  - type: input
+  - type: textarea
     id: networks
     attributes:
       label: Networks
-      description: "Enter network names separated by commas."
-    validations:
-      required: true
+      description: "On each new line write the relevant networks."
+      placeholder: "Polkadot\nEthereum\nAstar"
 
   - type: checkboxes
     id: purposes
@@ -91,28 +83,40 @@ body:
       label: Purposes
       description: "Select the purposes."
       options:
-        - label: Data
-    validations:
-      required: true
+        - label: ai
+        - label: bridge
+        - label: dao
+        - label: data
+        - label: defi
+        - label: evm
+        - label: gaming
+        - label: governance
+        - label: nft
+        - label: oracles
+        - label: rwa
+        - label: socialfi
+        - label: staking
+        - label: testing
+        - label: universal
 
-  - type: input
+  - type: checkboxes
     id: stackLevels
     attributes:
       label: Stack Levels
       description: "Enter stack levels separated by commas."
-    validations:
-        required: true
+      options:
+        - label: protocol
+        - label: runtime
+        - label: smart-contract
+        - label: messaging
+        - label: offchain
 
-  - type: checkboxes
+  - type: textarea
     id: technologies
     attributes:
       label: Technologies
-      description: "Select the technologies used."
-      options:
-        - label: TypeScript
-        - label: Rust
-    validations:
-        required: true
+      description: "On each line write the technologies used."
+      placeholder: "Substrate\nInk!"
 
   - type: checkboxes
     id: types
@@ -120,6 +124,12 @@ body:
       label: Types
       description: "Select the types."
       options:
+        - label: platform
+        - label: tool
+        - label: library
+        - label: client
+        - label: framework
+        - label: template
+        - label: mobile
+        - label: service
         - label: dApp
-    validations:
-        required: true

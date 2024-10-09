@@ -103,10 +103,56 @@ pub async fn import_repositories(
 
         let repo_id: i32 = repo_row.get("id");
 
+        // let mut pages_remaining = true;
+        // let mut all_repo_issues: Vec<Issue> = vec![];
+        // let mut page_number: u32 = 1;
+
+        // info!("\n\n CURRENT REPO BEING IMPORTED: {}\n\n", repo_info.name);
+
+        // while pages_remaining {
+        //     let page = octocrab
+        //         .issues(&repo_info.owner, &repo_info.name)
+        //         .list()
+        //         .state(State::Open)
+        //         .per_page(100)
+        //         .page(page_number)
+        //         .send()
+        //         .await?;
+
+        //     info!("\n\n NEXT PAGE ISSUES COUNT: {}\n\n", page.items.len());
+
+        //     all_repo_issues.extend(page.items);
+        //     pages_remaining = page.next.is_some();
+        //     page_number += 1;
+        //     tokio::time::sleep(tokio::time::Duration::from_millis(500)).await;
+        // }
+
+        // info!(
+        //     "\n\nREPO NAME: {}, ALL REPO ISSUES/PULLS COUNT: {}\n\n",
+        //     &repo_info.name,
+        //     &all_repo_issues.len()
+        // );
+
+        // let filtered_issues: Vec<KudosIssue> = all_repo_issues
+        //     .into_iter()
+        //     .filter_map(|issue| {
+        //         issue
+        //             .pull_request
+        //             .is_none()
+        //             .then(|| KudosIssue::from(issue))
+        //     })
+        //     .collect();
+
+        // info!(
+        //     "\n\nREPO NAME: {}, ALL FILTERED ISSUES COUNT: {}\n\n",
+        //     &repo_info.name,
+        //     &filtered_issues.len()
+        // );
+
         let stream = octocrab
-            .issues(repo_info.owner, repo_info.name)
+            .issues(&repo_info.owner, &repo_info.name)
             .list()
-            .state(State::All)
+            .state(State::Open)
             .per_page(100)
             .send()
             .await?
@@ -122,6 +168,12 @@ pub async fn import_repositories(
             })
             .try_collect()
             .await?;
+
+        info!(
+            "\n\nREPO NAME: {}, ALL FILTERED ISSUES COUNT: {}\n\n",
+            &repo_info.name,
+            &filtered_issues.len()
+        );
 
         if filtered_issues.is_empty() {
             continue;
