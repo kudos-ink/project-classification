@@ -115,7 +115,7 @@ body:
     id: technologies
     attributes:
       label: Technologies
-      description: "On each line write the technologies used."
+      description: "On each line write the technologies used. In general, these are frameworks or languages unknown to Github."
       placeholder: "Substrate\nInk!"
 
   - type: checkboxes
