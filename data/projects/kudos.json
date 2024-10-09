@@ -5,22 +5,22 @@
   "links": {
     "website": [{ "label": "morekudos.com", "url": "https://morekudos.com" }],
     "docs": [
-      { "label": "github.com/kudos-ink", "url": "https://github.com/kudos-ink" }
+      { "label": "Add Your Project to Kudos", "url": "https://github.com/kudos-ink/project-classification/blob/main/README.md" }
     ],
     "explorer": [],
     "repository": [
-      { "label": "portal", "url": "https://github.com/kudos-ink/portal" },
+      { "label": "Kudos Portal", "url": "https://github.com/kudos-ink/portal" },
       {
-        "label": "issues-api",
+        "label": "Kudos API",
         "url": "https://github.com/kudos-ink/issues-api"
-      }
+      },
     ],
     "social": [{ "label": "X/Twitter", "url": "https://x.com/KudosPortal" }]
   },
   "attributes": {
     "networks": [],
     "purposes": ["data"],
-    "stackLevels": ["offchain", "messaging"],
+    "stackLevels": ["offchain"],
     "technologies": [],
     "types": ["dApp"]
   }
