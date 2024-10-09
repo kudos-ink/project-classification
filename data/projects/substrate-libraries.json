@@ -1,7 +1,7 @@
 {
   "name": "Substrate Libraries",
   "slug": "substrate-libraries",
-  "description": "Substrate enables developers to quickly and easily build future proof blockchains optimized for any use case.",
+  "description": "Lightweight API libraries for seamless interaction with Substrate-based chains, offering efficient and flexible integration in various environments.",
   "links": {
     "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
     "docs": [
