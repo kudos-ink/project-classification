@@ -58,20 +58,20 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
-      - name: Checkout with full history
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 2
-
       - name: Extract slug from changed JSON file
         id: extract_slug
         run: |
-          # Get the list of changed files
-          CHANGED_FILE=$(git diff --name-only HEAD^ HEAD | grep -oP 'data/projects/\K[^/]+(?=.json)')
-          echo "slug=${CHANGED_FILE}" >> $GITHUB_ENV
+          # Extract the modified JSON file's name (without extension) from GitHub event context
+          SLUG=$(jq -r '.commits[].modified[] | select(test("data/projects/.*\\.json$")) | capture("data/projects/(?<filename>[^/]+)\\.json").filename' < "${{ github.event_path }}")
+          echo "Slug: $SLUG"
+          echo "slug=${SLUG}" >> $GITHUB_ENV
 
       - name: Revalidate cache
         run: |
           SLUG=${{ env.slug }}
-          curl --fail --location --request POST "${{ vars.REVALIDATE_CACHE_URL }}/repositories${SLUG:+_$SLUG}" \
-            --header "${{ secrets.AUTH_HEADER }}"
+          if [ -z "$SLUG" ]; then
+            echo "No slug detected, skipping cache revalidation."
+          else
+            curl --fail --location --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-infos-${SLUG:+_$SLUG}" \
+              --header "${{ secrets.AUTH_HEADER }}"
+          fi
