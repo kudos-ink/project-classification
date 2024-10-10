@@ -21,7 +21,7 @@
     "networks": [],
     "purposes": ["data"],
     "stackLevels": ["offchain"],
-    "technologies": ["typescript", "rust"],
+    "technologies": [],
     "types": ["dApp"]
   }
 }
