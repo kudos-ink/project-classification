@@ -14,12 +14,16 @@
         "url": "https://github.com/paritytech/polkadot-sdk"
       },
       {
-        "label": "Polkadot Wiki",
-        "url": "https://github.com/w3f/polkadot-wiki"
+        "label": "Polkadot Runtimes",
+        "url": "https://github.com/polkadot-fellows/runtimes"
       },
       {
         "label": "Polkadot Spec",
         "url": "https://github.com/w3f/polkadot-spec"
+      },
+      {
+        "label": "Polkadot Wiki",
+        "url": "https://github.com/w3f/polkadot-wiki"
       }
     ],
     "social": [{ "label": "X/Twitter", "url": "https://x.com/Polkadot" }]
