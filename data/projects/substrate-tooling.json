@@ -1,7 +1,7 @@
 {
   "name": "Substrate Tooling",
   "slug": "substrate-tooling",
-  "description": "Substrate enables developers to quickly and easily build future proof blockchains optimized for any use case.",
+  "description": "A few of the tools you might find useful as you start developing a Substrate-based blockchain.",
   "links": {
     "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
     "docs": [
@@ -20,14 +20,6 @@
       {
         "label": "Substrate Connect",
         "url": "https://github.com/paritytech/substrate-connect"
-      },
-      {
-        "label": "Substrate Portal UI",
-        "url": "https://github.com/polkadot-js/apps"
-      },
-      {
-        "label": "Polkadot JS Extension",
-        "url": "https://github.com/polkadot-js/extension"
       }
     ],
     "social": []
