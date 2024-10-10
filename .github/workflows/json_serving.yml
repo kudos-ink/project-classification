@@ -62,16 +62,16 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 2
-      
-      - name: Extract slug from changed JSON file
-        id: extract_slug
+
+      - name: Extract slug and revalidate cache if slug is not empty
         run: |
           # Get the list of changed files and extract slug using sed
           CHANGED_FILE=$(git diff --name-only HEAD | grep 'data/projects/' | sed 's|data/projects/\(.*\)\.json|\1|')
-          echo "slug=${CHANGED_FILE}" >> $GITHUB_ENV
-      
-      - name: Revalidate cache
-        run: |
-          SLUG=${{ env.slug }}
-          curl --fail --location --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-infos-${SLUG:+_$SLUG}" \
-            --header "${{ secrets.AUTH_HEADER }}"
+
+          if [ -n "$CHANGED_FILE" ]; then
+            echo "Revalidating cache for slug: $CHANGED_FILE"
+            curl --fail --location --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-infos-${CHANGED_FILE}" \
+              --header "${{ secrets.AUTH_HEADER }}"
+          else
+            echo "No project slug found, skipping cache revalidation."
+          fi
