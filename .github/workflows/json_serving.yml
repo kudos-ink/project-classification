@@ -58,6 +58,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: deploy
     steps:
+      - name: Checkout with full history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
       - name: Extract slug from changed JSON file
         id: extract_slug
         run: |
