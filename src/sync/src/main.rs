@@ -57,6 +57,7 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     }
 
     if payload.repos_to_add.is_empty() {
+        tx.commit().await?;
         // return early
         return Ok(Response::builder()
             .status(200)
