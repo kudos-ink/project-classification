@@ -27,12 +27,18 @@ jobs:
             echo "Action: Create new entry for $FILE_PATH"
 
             PROJECT=$(jq '.' "$FILE_PATH")
+            SLUG=$(jq '.slug' "$FILE_PATH")
 
             RESPONSE=$(curl -s -X POST "${{ secrets.CREATE_URL }}" \
               -H "Content-Type: application/json" \
               -d "$PROJECT")
 
             echo "Response from POST request: $RESPONSE"
+
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-infos-${SLUG}" \
+              --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
+              --header "${{ secrets.AUTH_HEADER }}"
 
           elif [ "$FILE_STATUS" == "M" ]; then
 
@@ -74,8 +80,6 @@ jobs:
                   '{
                     project_slug: $project_slug,
                     project_name: $project_name,
-                    repos_to_add: $repos_to_add,
-                    repos_to_remove: $repos_to_remove
                   }'
                 )
 
@@ -83,8 +87,12 @@ jobs:
               if [ "$UPDATE" == "true" ]; then
                   PAYLOAD=$(echo "$PAYLOAD" | jq --argjson attributes "$NEW_ATTRS" '. + {attributes: $attributes}')
               fi
-
               curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.SYNC_URL }}"
+              
+              curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-infos-${PROJECT_SLUG}" \
+                --header "${{ secrets.AUTH_HEADER }}"
+              curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
+                --header "${{ secrets.AUTH_HEADER }}"
             fi
 
             if [ "$SYNC" == "false" ] && [ "$UPDATE" == "false" ]; then
@@ -93,3 +101,4 @@ jobs:
           else
             echo "File deleted or other non-applicable change detected; no action taken."
           fi
+          
