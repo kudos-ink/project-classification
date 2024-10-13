@@ -80,6 +80,8 @@ jobs:
                   '{
                     project_slug: $project_slug,
                     project_name: $project_name,
+                    repos_to_add: $repos_to_add,
+                    repos_to_remove: $repos_to_remove
                   }'
                 )
 
