@@ -223,6 +223,7 @@ pub async fn import_repositories(
                     None
                 })
                 .bind(issue.certified)
+                .bind(issue.description)
         }
 
         let issues_inserted_count = insert_issues_query
