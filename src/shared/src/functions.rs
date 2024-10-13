@@ -88,10 +88,9 @@ pub async fn import_repositories(
             .to_lowercase();
 
         let repo_query = repo.insert_respository_query();
-
         let repo_row = sqlx::query(repo_query)
-            .bind(&repo.label)
-            .bind(&repo_info.name)
+            .bind(&repo_data.full_name) // slug
+            .bind(&repo.label) // name
             .bind(format!(
                 "https://github.com/{}/{}",
                 &repo_info.owner, &repo_info.name
