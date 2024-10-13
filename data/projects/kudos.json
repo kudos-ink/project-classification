@@ -5,7 +5,8 @@
   "links": {
     "website": [{ "label": "morekudos.com", "url": "https://morekudos.com" }],
     "docs": [
-      { "label": "Add Your Project to Kudos", "url": "https://github.com/kudos-ink/project-classification/blob/main/README.md" }
+      { "label": "Add Your Project to Kudos", "url": "https://github.com/kudos-ink/project-classification/blob/main/README.md" },
+      { "label": "Add Your Project", "url": "https://github.com/kudos-ink/project-classification/tree/main" }
     ],
     "explorer": [],
     "repository": [
@@ -21,7 +22,7 @@
     "networks": [],
     "purposes": ["data"],
     "stackLevels": ["offchain"],
-    "technologies": [],
+    "technologies": ["substrate"],
     "types": ["dApp"]
   }
 }
