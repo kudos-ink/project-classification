@@ -89,7 +89,7 @@ pub async fn import_repositories(
 
         let repo_query = repo.insert_respository_query();
         let repo_row = sqlx::query(repo_query)
-            .bind(&repo_info.name) // slug
+            .bind(&repo_data.full_name) // slug
             .bind(&repo.label) // name
             .bind(format!(
                 "https://github.com/{}/{}",
