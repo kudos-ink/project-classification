@@ -71,6 +71,7 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
                 })
     .bind(&kudos_issue.issue_closed_at.is_none())
     .bind(&kudos_issue.certified)
+    .bind(&kudos_issue.description)
     .execute(&mut *tx).await?.rows_affected();
 
     tx.commit().await?;
