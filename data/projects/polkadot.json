@@ -33,6 +33,7 @@
     "purposes": ["universal"],
     "stackLevels": ["protocol", "messaging", "runtime"],
     "technologies": ["substrate"],
-    "types": ["platform"]
+    "types": ["platform"],
+    "rewards": false
   }
 }

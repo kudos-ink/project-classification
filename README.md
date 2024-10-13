@@ -20,6 +20,7 @@ To add your project to the Kudos Portal on [https://morekudos.com](https://morek
    - **Stack Levels**: Choose the stack levels applicable to your project (e.g., protocol, runtime, smart contract).
    - **Technologies**: (Optional) Add the technologies used by your project, one per line. In general, these are frameworks or languages unknown to Github.
    - **Types**: Choose the types that best describe your project (e.g., platform, tool, service).
+   - **Rewards**: Click on it if the project can pay rewards to the contributors.
 
 3. **Submit the issue**.
 

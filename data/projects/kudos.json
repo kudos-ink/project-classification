@@ -22,6 +22,7 @@
     "purposes": ["data"],
     "stackLevels": ["offchain"],
     "technologies": [],
-    "types": ["dApp"]
+    "types": ["dApp"],
+    "rewards": false
   }
 }

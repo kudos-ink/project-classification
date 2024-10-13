@@ -40,6 +40,7 @@ pub async fn insert_project(
         .bind(&project.attributes.purposes)
         .bind(&project.attributes.stack_levels)
         .bind(&project.attributes.technologies)
+        .bind(&project.attributes.rewards.unwrap_or(false))
         .fetch_one(&mut **tx)
         .await?;
 
