@@ -34,6 +34,6 @@
     "stackLevels": ["protocol", "messaging", "runtime"],
     "technologies": ["substrate"],
     "types": ["platform"],
-    "rewards": false
+    "rewards": true
   }
 }
