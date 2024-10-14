@@ -38,11 +38,12 @@ async fn function_handler(event: Request) -> Result<Response<Body>, Error> {
     let project_id: i32 = project_row.get("id");
 
     if let Some(attributes) = payload.attributes {
-        sqlx::query("UPDATE projects SET purposes = $1, stack_levels = $2, technologies = $3, types = $4 WHERE id = $5")
+        sqlx::query("UPDATE projects SET purposes = $1, stack_levels = $2, technologies = $3, types = $4, rewards = $5 WHERE id = $6")
         .bind(attributes.purposes)
         .bind(attributes.stack_levels)
         .bind(attributes.technologies)
         .bind(attributes.types)
+        .bind(attributes.rewards.unwrap_or(false))
         .bind(project_id)
         .execute(&mut *tx).await?;
     }

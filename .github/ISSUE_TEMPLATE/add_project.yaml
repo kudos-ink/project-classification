@@ -133,3 +133,10 @@ body:
         - label: mobile
         - label: service
         - label: dApp
+
+  - type: checkbox
+    id: rewards
+    attributes:
+      label: Rewards
+      description: "The project can pay rewards to contributors."
+      default: false

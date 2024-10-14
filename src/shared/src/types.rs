@@ -91,6 +91,7 @@ pub struct ProjectAttributes {
     pub stack_levels: Vec<String>,
     pub technologies: Vec<String>,
     pub types: Vec<String>,
+    pub rewards: Option<bool>,
 }
 
 #[derive(Deserialize, Debug)]
@@ -112,15 +113,16 @@ pub struct Project {
 impl Project {
     pub fn new_project_query(&self) -> &str {
         let query_string = r#"
-        INSERT INTO projects (name, slug, types, purposes, stack_levels, technologies)
-        VALUES ($1, $2, $3, $4, $5, $6)
+        INSERT INTO projects (name, slug, types, purposes, stack_levels, technologies, rewards)
+        VALUES ($1, $2, $3, $4, $5, $6, $7)
         ON CONFLICT (slug)
         DO UPDATE SET
             name = EXCLUDED.name,
             types = EXCLUDED.types,
             purposes = EXCLUDED.purposes,
             stack_levels = EXCLUDED.stack_levels,
-            technologies = EXCLUDED.technologies
+            technologies = EXCLUDED.technologies,
+            rewards = EXCLUDED.rewards
         RETURNING id;
         "#;
         query_string

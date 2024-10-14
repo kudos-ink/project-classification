@@ -29,6 +29,7 @@
     "purposes": [],
     "stackLevels": ["offchain"],
     "technologies": ["substrate"],
-    "types": ["library"]
+    "types": ["library"],
+    "rewards": false
   }
 }
