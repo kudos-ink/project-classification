@@ -2,6 +2,7 @@
   "name": "Kudos Portal",
   "slug": "kudos",
   "description": "A Portal for Agile Devtime - The Platform to Connect Teams and Skilled Contributors in the Polkadot Ecosystem.",
+  "richText": "Kudos is a platform designed to streamline the process of onboarding new developers to the Polkadot ecosystem. We make it simple to navigate, search and filter open GitHub contributions across the entire ecosystem, allowing aspiring contributors to find projects and tasks, which match their skill level and interests.",
   "links": {
     "website": [{ "label": "morekudos.com", "url": "https://morekudos.com" }],
     "docs": [
