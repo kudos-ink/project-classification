@@ -2,10 +2,13 @@
   "name": "Substrate Tooling",
   "slug": "substrate-tooling",
   "description": "A few of the tools you might find useful as you start developing a Substrate-based blockchain.",
+  "richText": "Substrate is a framework for building upgradable, modular and efficient blockchains. **FRAME** is a system for building Substrate runtimes. The `Substrate Tooling` project page groups tools that have a positive impact on developer success in the Polkadot Ecosystem.\n\nUnified repositories:\n\n- `Substrate API Sidecar`: REST service that makes it easy to interact with blockchain nodes built using Substrate's FRAME framework. Developed by Parity in **Typescript**.\n- `Substrate Telemetry`: Polkadot Telemetry service. Developed by Parity in **Rust** and **Typescript**.\n- `Substrate Connect`: NPM packages that offers an innovative way to interact with Substrate-based blockchains directly in your browser. Developed by Parity in **Typescript**.",
   "links": {
     "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
     "docs": [
-      { "label": "Substrate Docs", "url": "https://docs.substrate.io/" }
+      { "label": "Substrate Docs", "url": "https://docs.substrate.io/" },
+      { "label": "Sidecar Swagger", "url": "https://paritytech.github.io/substrate-api-sidecar/dist/" },
+      { "label": "Substrate Connect Docs", "url": "https://paritytech.github.io/substrate-connect/" }
     ],
     "explorer": [],
     "repository": [
@@ -26,10 +29,10 @@
   },
   "attributes": {
     "networks": [],
-    "purposes": [],
+    "purposes": ["universal"],
     "stackLevels": ["offchain"],
     "technologies": ["substrate"],
-    "types": ["library"],
+    "types": ["framework", "service", "tool"],
     "rewards": false
   }
 }
