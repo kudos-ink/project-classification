@@ -2,7 +2,7 @@
   "name": "Polkadot",
   "slug": "polkadot",
   "description": "Polkadot unites the world's innovators and changemakers, building and using the most transformative apps and blockchains.",
-  "richText": "Polkadot SDK is the overarching name for Substrate, and the rest of Polkadot's Development Kit.\nThe runtimes of the Polkadot and Kusama relay chains, and their system chains were moved to be maintained by the Polkadot fellowship.",
+  "richText": "Polkadot SDK is the overarching name for Substrate, and the rest of Polkadot's Development Kit.\r\n\r\nThe runtimes of the Polkadot and Kusama relay chains, and their system chains were moved to be maintained by the Polkadot fellowship.",
   "links": {
     "website": [{ "label": "polkadot.com", "url": "https://polkadot.com/" }],
     "docs": [

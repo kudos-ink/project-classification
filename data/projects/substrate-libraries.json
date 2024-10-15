@@ -2,7 +2,7 @@
   "name": "Substrate Libraries",
   "slug": "substrate-libraries",
   "description": "Lightweight API libraries for seamless interaction with Substrate-based chains, offering efficient and flexible integration in various environments.",
-  "richText": "Substrate is a framework for building upgradable, modular and efficient blockchains.\nThe `Substrate Libraries` project page groups libraries that have a positive impact on developer success in the Polkadot Ecosystem.\n\nUnified repositories:\n\n- `polkadot-api`: A meticulously crafted suite of libraries to interact with Substrate based nodes in **Typescript**. Each lib is designed to be composable, modular, and aligned with a \"light-client first\" philosophy.\n- `subxt`: The official library to interact with Substrate based nodes in **Rust** or **WebAssembly**. Developed by Parity.",
+  "richText": "Substrate is a framework for building upgradable, modular and efficient blockchains.\r\n\r\nThe `Substrate Libraries` project page groups libraries that have a positive impact on developer success in the Polkadot Ecosystem.\r\n\r\nUnified repositories:\r\n\r\n- `polkadot-api`: A meticulously crafted suite of libraries to interact with Substrate based nodes in **Typescript**. Each lib is designed to be composable, modular, and aligned with a \"light-client first\" philosophy.\r\n\r\n- `subxt`: The official library to interact with Substrate based nodes in **Rust** or **WebAssembly**. Developed by Parity.",
   "links": {
     "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
     "docs": [
