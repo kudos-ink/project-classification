@@ -1,0 +1,64 @@
+{
+  "name": "Substrate Clients",
+  "slug": "substrate-clients",
+  "description": "A collectiion of various clients for Substrate based chains",
+  "richText": "A collectiion of clients and light clients for Substrate based chains, written in a variety of languages",
+  "links": {
+    "website": [
+      { "label": "substrate.io/", "url": "https://substrate.io/" },
+      { "label": "limechain.tech/", "url": "https://limechain.tech/" },
+      { "label": "chainsafe.io/", "url": "https://chainsafe.io/" },
+      { "label": "soramitsu.co.jp/", "url": "https://soramitsu.co.jp/" }
+    ],
+    "docs": [
+      {
+        "label": "Smoldot Docs",
+        "url": "https://docs.rs/smoldot/0.17.0/smoldot/"
+      },
+      {
+        "label": "Fruzhin Docs",
+        "url": "https://github.com/LimeChain/Fruzhin/tree/dev/docs"
+      },
+      {
+        "label": "Gossamer Docs",
+        "url": "https://github.com/ChainSafe/gossamer/tree/development/docs"
+      },
+      {
+        "label": "Kagome Docs",
+        "url": "https://kagome.readthedocs.io/en/latest/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Smoldot",
+        "url": "https://github.com/smol-dot/smoldot"
+      },
+      {
+        "label": "Fruzhin",
+        "url": "https://github.com/LimeChain/Fruzhin"
+      },
+      {
+        "label": "Gossamer",
+        "url": "https://github.com/ChainSafe/gossamer"
+      },
+      {
+        "label": "Kagome",
+        "url": "https://github.com/qdrvm/kagome"
+      }
+    ],
+    "social": [
+      { "label": "X/Twitter", "url": "https://x.com/ChainSafeth" },
+      { "label": "X/Twitter", "url": "https://x.com/LimeChainHQ" },
+      { "label": "X/Twitter", "url": "https://x.com/soramitsu_co" }
+    ]
+  },
+  "attributes": {
+    "networks": ["polkadot"],
+    "purposes": ["universal"],
+    "stackLevels": ["protocol"],
+    "technologies": [],
+    "types": ["client"],
+    "rewards": false
+  }
+}
