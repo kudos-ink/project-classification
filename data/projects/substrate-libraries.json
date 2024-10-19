@@ -19,6 +19,10 @@
       {
         "label": "Polkadot-API",
         "url": "https://github.com/polkadot-api/polkadot-api"
+      },
+      {
+        "label": "Substrate .NET API",
+        "url": "https://github.com/SubstrateGaming/Substrate.NET.API"
       }
     ],
     "social": []
