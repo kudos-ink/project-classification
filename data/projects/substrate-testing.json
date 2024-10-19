@@ -1,0 +1,44 @@
+{
+  "name": "Substrate Testing",
+  "slug": "substrate-testing",
+  "description": "A a collection of useful testing tools from across the Substrate ecosystem.",
+  "richText": "Substrate is a framework for building upgradable, modular and efficient blockchains. **FRAME** is a system for building Substrate runtimes. The `Substrate Testing` project page groups tools that have a positive impact on developer success in the Polkadot Ecosystem.\r\n\r\nUnified repositories:\r\n\r\n- `Chopsticks`: Create parallel reality of your Substrate network. Developed by AcalaNetwork in **Typescript** and **Rust**.\r\n\r\n- `Zombienet`: A cli tool to easily spawn ephemeral Polkadot/Substrate networks and perform tests against them. Developed by Parity in **Rust** and **Typescript**.\r\n\r\n- `Zombienet SDK`:  a new SDK for ZombieNet that allow users to build more complex use cases and interact with the network in a more flexible and programatic way. The SDK will provide a set of building blocks that users can combine in order to spawn and interact (test/query/etc) with the network providing a fluent api to craft different topologies and assertions to the running network. Developed by Parity in **Rust**.",
+  "links": {
+    "website": [{ "label": "substrate.io/", "url": "https://substrate.io/" }],
+    "docs": [
+      { "label": "Chopsticks Docs", "url": "https://github.com/AcalaNetwork/chopsticks/wiki" },
+      {
+        "label": "Zombienet Docs",
+        "url": "https://paritytech.github.io/zombienet/"
+      },
+      {
+        "label": "Zombienet SDK Docs",
+        "url": "https://paritytech.github.io/zombienet-sdk/zombienet_sdk/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Chopsticks",
+        "url": "https://github.com/AcalaNetwork/chopsticks"
+      },
+      {
+        "label": "Zombienet",
+        "url": "https://github.com/paritytech/zombienet"
+      },
+      {
+        "label": "Zombienet SDK",
+        "url": "https://github.com/paritytech/zombienet-sdk"
+      }
+    ],
+    "social": []
+  },
+  "attributes": {
+    "networks": [],
+    "purposes": ["testing"],
+    "stackLevels": ["protocol", "runtime"],
+    "technologies": ["substrate"],
+    "types": ["framework", "library", "tool"],
+    "rewards": false
+  }
+}
