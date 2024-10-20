@@ -2,7 +2,7 @@
   "name": "Substrate Clients",
   "slug": "substrate-clients",
   "description": "A collectiion of various clients for Substrate based chains",
-  "richText": "A collectiion of clients and light clients for Substrate based chains, written in a variety of languages",
+  "richText": "A collection of clients and light clients for Substrate based chains, written in a variety of languages.",
   "links": {
     "website": [
       { "label": "substrate.io/", "url": "https://substrate.io/" },
