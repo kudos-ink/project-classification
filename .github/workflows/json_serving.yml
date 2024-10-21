@@ -74,6 +74,10 @@ jobs:
               --header "${{ secrets.AUTH_HEADER }}"
             curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
               --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/projects" \
+              --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-options" \
+              --header "${{ secrets.AUTH_HEADER }}"
           else
             echo "No project slug found, skipping cache revalidation."
           fi
