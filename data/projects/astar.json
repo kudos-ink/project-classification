@@ -1,0 +1,39 @@
+{
+  "name": "Astar",
+  "slug": "astar",
+  "description": "Astar Network is a multi-chain dApp hub on Polkadot, supporting Ethereum Virtual Machine, WebAssembly, layer2 solutions and multiple layer1 blockchains. Since Polkadot Relaychain doesn’t support smart contracts by design, Astar provides dApp developers a high-performance smart contract platform with scalability and interoperability between multiple virtual machines and layer1 blockchains. Astar has organic dev growth with teams building synthetic assets, stablecoins, a multichain DEX, etc.",
+  "richText": "Kudos is a platform designed to streamline the process of onboarding new developers to the Polkadot ecosystem.\r\n\r\nWe make it simple to navigate, search and filter open GitHub contributions across the entire ecosystem, allowing aspiring contributors to find projects and tasks, which match their skill level and interests.",
+  "links": {
+    "website": [
+      { "label": "Astar Website", "url": "https://astar.network/" },
+      { "label": "Astar Portal", "url": "https://portal.astar.network/" },
+      { "label": "dApp Staking", "url": "https://portal.astar.network/astar/dapp-staking/discover" }
+    ],
+    "docs": [
+      { "label": "Documentation", "url": "https://docs.astar.network/" }
+    ],
+    "explorer": [
+      { "label": "Subscan", "url": "https://astar.subscan.io/" }
+    ],
+    "repository": [
+      { "label": "Astar", "url": "https://github.com/AstarNetwork/Astar" },
+      {
+        "label": "Astar Apps",
+        "url": "https://github.com/AstarNetwork/astar-apps"
+      }
+    ],
+    "social": [
+      { "label": "X/Twitter", "url": "https://x.com/AstarNetwork" },
+      { "label": "Discord", "url": "https://discord.gg/astarnetwork" },
+      { "label": "Telegram", "url": "https://t.me/PlasmOfficial" }
+    ]
+  },
+  "attributes": {
+    "networks": ["astar"],
+    "purposes": ["evm", "staking", "universal"],
+    "stackLevels": ["protocol", "runtime", "smart-contract", "messaging", "offchain"],
+    "technologies": ["evm", "substrate"],
+    "types": ["platform"],
+    "rewards": false
+  }
+}
