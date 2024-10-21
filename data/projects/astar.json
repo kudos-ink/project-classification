@@ -1,8 +1,8 @@
 {
   "name": "Astar",
   "slug": "astar",
-  "description": "Astar Network is a multi-chain dApp hub on Polkadot, supporting Ethereum Virtual Machine, WebAssembly, layer2 solutions and multiple layer1 blockchains. Since Polkadot Relaychain doesn’t support smart contracts by design, Astar provides dApp developers a high-performance smart contract platform with scalability and interoperability between multiple virtual machines and layer1 blockchains. Astar has organic dev growth with teams building synthetic assets, stablecoins, a multichain DEX, etc.",
-  "richText": "Kudos is a platform designed to streamline the process of onboarding new developers to the Polkadot ecosystem.\r\n\r\nWe make it simple to navigate, search and filter open GitHub contributions across the entire ecosystem, allowing aspiring contributors to find projects and tasks, which match their skill level and interests.",
+  "description": "Astar Network is a multi-chain dApp hub on Polkadot, supporting EVM and WebAssembly smart contracts.",
+  "richText": "Astar Network is a multi-chain dApp hub on Polkadot, supporting Ethereum Virtual Machine, WebAssembly, layer2 solutions and multiple layer1 blockchains. Since Polkadot Relaychain doesn’t support smart contracts by design, Astar provides dApp developers a high-performance smart contract platform with scalability and interoperability between multiple virtual machines and layer1 blockchains. Astar has organic dev growth with teams building synthetic assets, stablecoins, a multichain DEX, etc.",
   "links": {
     "website": [
       { "label": "Astar Website", "url": "https://astar.network/" },
