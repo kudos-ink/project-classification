@@ -39,6 +39,10 @@ jobs:
               --header "${{ secrets.AUTH_HEADER }}"
             curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
               --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/projects" \
+              --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-options" \
+              --header "${{ secrets.AUTH_HEADER }}"
 
           elif [ "$FILE_STATUS" == "M" ]; then
 
@@ -92,9 +96,13 @@ jobs:
               curl -X POST -H "Content-Type: application/json" -d "$PAYLOAD" "${{ secrets.SYNC_URL }}"
               
               curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-infos-${PROJECT_SLUG}" \
-                --header "${{ secrets.AUTH_HEADER }}"
-              curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
-                --header "${{ secrets.AUTH_HEADER }}"
+              --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
+              --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/projects" \
+              --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-options" \
+              --header "${{ secrets.AUTH_HEADER }}"
             fi
 
             if [ "$SYNC" == "false" ] && [ "$UPDATE" == "false" ]; then
