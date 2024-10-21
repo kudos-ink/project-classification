@@ -47,3 +47,9 @@ jobs:
           # Return to the root directory
           cd -
         done
+
+    - name: Revalidate caches
+      run: |
+        echo "Revalidating cache for latest issues"
+        curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/latest-issues" \
+          --header "${{ secrets.AUTH_HEADER }}"
