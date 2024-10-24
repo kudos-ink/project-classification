@@ -1,0 +1,85 @@
+{
+  "name": "Interlay",
+  "slug": "interlay",
+  "description": "Interlay is a modular, programmable layer between Bitcoin and the multi-chain ecosystem that unlocks decentralized (financial) use cases for BTC.\r\n\r\nInterlay’s vision is to help Bitcoin achieve mass adoption by unlocking decentralized (financial) use cases for BTC and removing the need for centralized services. Interlay’s achieves this by creating the necessary infrastructure and financial tooling for both users and builders",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.interlay.io",
+        "url": "https://www.interlay.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.interlay.io/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://interlay.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "InterBTC",
+        "url": "https://github.com/interlay/interbtc"
+      },
+      {
+        "label": "InterBTC Typescript SDK",
+        "url": "https://github.com/interlay/interbtc-api"
+      },
+      {
+        "label": "Kintsugi & Interlay App",
+        "url": "https://github.com/interlay/interbtc-ui"
+      },
+      {
+        "label": "InterBTC SubSquid",
+        "url": "https://github.com/interlay/interbtc-squid"
+      },
+      {
+        "label": "Interlay Bridge SDK",
+        "url": "https://github.com/interlay/bridge"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/interlayHQ"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/interlay_community"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/interlay"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Bitcoin"
+    ],
+    "purposes": [
+      "bridge",
+      "defi"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime",
+      "smart-contract"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
