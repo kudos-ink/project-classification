@@ -1,0 +1,46 @@
+{
+  "name": "Polkadot Fellows",
+  "slug": "polkadot-fellows",
+  "description": "The Polkadot Technical Fellowship is a self-governing body of experts and developers of Polkadot and Kusama networks. It operates on-chain through the Polkadot [Collectives](https://polkadot.js.org/apps/?rpc=wss%3A%2F%2Fpolkadot-collectives-rpc.polkadot.io#/fellowship/referenda) system chain and off-chain through the [Polkadot Fellows](https://github.com/polkadot-fellows) repository.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "polkadot-fellows.xyz",
+        "url": "https://polkadot-fellows.xyz/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Polkadot SDK",
+        "url": "https://paritytech.github.io/polkadot-sdk/master/polkadot_sdk_docs/index.html"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Dashboard",
+        "url": "https://github.com/polkadot-fellows/dashboard"
+      }
+    ],
+    "social": []
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "dao",
+      "governance",
+      "testing"
+    ],
+    "stackLevels": [
+      "protocol"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [],
+    "rewards": false
+  }
+}
