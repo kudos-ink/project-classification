@@ -1,0 +1,58 @@
+{
+  "name": "Talisman",
+  "slug": "talisman",
+  "description": "Talisman is an Ethereum and Polkadot wallet that makes web3 simple for beginners and unlocks superpowers for pros.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "talisman.xyz",
+        "url": "https://talisman.xyz/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.talisman.xyz/talisman"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Talisman",
+        "url": "https://github.com/TalismanSociety/talisman"
+      },
+      {
+        "label": "Talisman",
+        "url": "https://github.com/TalismanSociety/talisman-web"
+      },
+      {
+        "label": "Talisman",
+        "url": "https://github.com/TalismanSociety/signet-web"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/wearetalisman"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [],
+    "types": [
+      "tool"
+    ],
+    "rewards": false
+  }
+}
