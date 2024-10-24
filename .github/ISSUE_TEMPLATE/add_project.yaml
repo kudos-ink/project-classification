@@ -134,9 +134,9 @@ body:
         - label: service
         - label: dApp
 
-  - type: checkbox
+  - type: checkboxes
     id: rewards
     attributes:
       label: Rewards
-      description: "The project can pay rewards to contributors."
-      default: false
+      options:
+        - label: "The project can pay rewards to contributors."
