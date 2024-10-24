@@ -1,0 +1,66 @@
+{
+  "name": "Hydration",
+  "slug": "hydration",
+  "description": "Hydration is a next-gen DeFi protocol which is designed to bring an ocean of liquidity to Polkadot. Our tool for the job the Hydration Omnipool - an innovative Automated Market Maker (AMM) which unlocks unparalleled efficiencies by combining all assets in a single trading pool.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "hydration.net",
+        "url": "https://hydration.net/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.hydration.net/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://hydration.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Hydration Node",
+        "url": "https://github.com/galacticcouncil/hydration-node"
+      },
+      {
+        "label": "Hydration UI",
+        "url": "https://github.com/galacticcouncil/hydration-ui"
+      },
+      {
+        "label": "Hydration SDK",
+        "url": "https://github.com/galacticcouncil/sdk"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/hydration_net"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "defi",
+      "staking"
+    ],
+    "stackLevels": [
+      "protocol"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
