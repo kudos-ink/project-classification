@@ -39,6 +39,10 @@ jobs:
               --header "${{ secrets.AUTH_HEADER }}"
             curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
               --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/projects" \
+              --header "${{ secrets.AUTH_HEADER }}"
+            curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-options" \
+              --header "${{ secrets.AUTH_HEADER }}"
 
           elif [ "$FILE_STATUS" == "M" ]; then
 
@@ -94,6 +98,10 @@ jobs:
               curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-infos-${PROJECT_SLUG}" \
                 --header "${{ secrets.AUTH_HEADER }}"
               curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/all-projects" \
+                --header "${{ secrets.AUTH_HEADER }}"
+              curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/projects" \
+                --header "${{ secrets.AUTH_HEADER }}"
+              curl --request POST "${{ vars.REVALIDATE_CACHE_URL }}/project-options" \
                 --header "${{ secrets.AUTH_HEADER }}"
             fi
 
