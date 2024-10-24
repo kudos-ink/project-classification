@@ -1,0 +1,64 @@
+{
+  "name": "Hyperbridge",
+  "slug": "hyperbridge",
+  "description": "Hyperbridge is a hyperscalable coprocessor for verifiable, cross-chain interoperability.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "hyperbridge.network",
+        "url": "https://hyperbridge.network/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Hyperbridge Docs",
+        "url": "https://docs.hyperbridge.network/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Hyperbridge",
+        "url": "https://github.com/polytope-labs/hyperbridge"
+      },
+      {
+        "label": "ISMP Solidity",
+        "url": "https://github.com/polytope-labs/ismp-solidity"
+      },
+      {
+        "label": "ISMP Solidity Merkle Trees",
+        "url": "https://github.com/polytope-labs/solidity-merkle-trees"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/hyperbridge_"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "bridge",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "messaging"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
