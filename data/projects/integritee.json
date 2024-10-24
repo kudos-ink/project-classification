@@ -1,0 +1,89 @@
+{
+  "name": "Integritee",
+  "slug": "integritee",
+  "description": "Integritee is a highly scalable, privacy-enabling network in the Polkadot ecosystem with parachains on Polkadot and Kusama. We seek to become the leading Web3 privacy solution - a blockchain network for developers and relevant to enterprises to build (decentralized) applications that benefit from unrivaled speed, verifiable confidentiality/privacy, and interoperability.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.integritee.network",
+        "url": "https://www.integritee.network/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.integritee.network/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://integritee.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Integritee Node",
+        "url": "https://github.com/integritee-network/integritee-node"
+      },
+      {
+        "label": "Integritee Parachain",
+        "url": "https://github.com/integritee-network/parachain"
+      },
+      {
+        "label": "Integritee Pallets",
+        "url": "https://github.com/integritee-network/pallets"
+      },
+      {
+        "label": "Integritee Worker",
+        "url": "https://github.com/integritee-network/worker"
+      },
+      {
+        "label": "Incognitee App",
+        "url": "https://github.com/integritee-network/incognitee-app"
+      },
+      {
+        "label": "Try Incognitee App",
+        "url": "https://github.com/integritee-network/try-incognitee-app"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/integri_t_e_e"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/Integritee_Official"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/wwGcqhfXtZ"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "data",
+      "defi",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime",
+      "smart-contract"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
