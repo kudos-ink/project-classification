@@ -1,0 +1,85 @@
+{
+  "name": "Robonomics",
+  "slug": "robonomics",
+  "description": "Secure, сost-effective, and futuristic IoT platform for connecting users, smart devices, and complex robotics under Polkadot and Ethereum control",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "robonomics.network",
+        "url": "https://robonomics.network/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Wiki",
+        "url": "https://wiki.robonomics.network/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://robonomics.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Robonomics",
+        "url": "https://github.com/airalab/robonomics"
+      },
+      {
+        "label": "Web3 API for Haskell",
+        "url": "https://github.com/airalab/hs-web3"
+      },
+      {
+        "label": "Robonomics App",
+        "url": "https://github.com/airalab/robonomics.app"
+      },
+      {
+        "label": "Home Assistants",
+        "url": "https://github.com/airalab/homeassistant-robonomics-integration"
+      },
+      {
+        "label": "Wiki",
+        "url": "https://github.com/airalab/robonomics-wiki"
+      },
+      {
+        "label": "Sensors",
+        "url": "https://github.com/airalab/sensors-connectivity"
+      },
+      {
+        "label": "Python Wrapper For ROS 2",
+        "url": "https://github.com/airalab/robonomics-ros2"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/AIRA_Robonomics"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "ai"
+    ],
+    "stackLevels": [
+      "protocol",
+      "offchain"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "tool",
+      "framework",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
