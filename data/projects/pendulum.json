@@ -1,0 +1,82 @@
+{
+  "name": "Pendulum",
+  "slug": "pendulum",
+  "description": "Pendulum is an open-source blockchain that aims to establish the missing link between the fiat and the DeFi ecosystems through a fiat-optimized smart contract blockchain Pendulum is built with Substrate and will allow connecting DeFi applications to the foreign exchange market, building automated market makers (AMMs) to introduce scalable liquidity pools for fiat currencies, and create yield earning opportunities for fiat token holders.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.pendulumchain.org",
+        "url": "https://www.pendulumchain.org/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Gitbook Docs",
+        "url": "https://pendulum.gitbook.io/pendulum-docs"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://pendulum.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Pendulum",
+        "url": "https://github.com/pendulum-chain/pendulum"
+      },
+      {
+        "label": "Portal",
+        "url": "https://github.com/pendulum-chain/portal"
+      },
+      {
+        "label": "Spacewalk",
+        "url": "https://github.com/pendulum-chain/spacewalk"
+      },
+      {
+        "label": "Oracle Pallet",
+        "url": "https://github.com/pendulum-chain/oracle-pallet"
+      },
+      {
+        "label": "Substrate Stellar SDK",
+        "url": "https://github.com/pendulum-chain/substrate-stellar-sdk"
+      },
+      {
+        "label": "Vortex",
+        "url": "https://github.com/pendulum-chain/vortex"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/pendulum_chain"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Stellar"
+    ],
+    "purposes": [
+      "bridge",
+      "defi",
+      "evm",
+      "oracles"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime",
+      "smart-contract"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform"
+    ],
+    "rewards": false
+  }
+}
