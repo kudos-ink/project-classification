@@ -1,0 +1,75 @@
+{
+  "name": "Acala Network",
+  "slug": "acala",
+  "description": "Acala is a decentralized liquidity blockchain that offers unified liquidity and built-in cross-chain capabilities. Acala’s key products, LDOT and Euphrates, exemplify its mission by providing a liquid staking solution, a liquidity distribution platform, and a liquidity center ideal for building robust decentralized applications. These solutions empower users globally to stake assets, maintain liquidity, and participate in a variety of financial activities.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "acala.network",
+        "url": "https://acala.network/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Acala Wiki",
+        "url": "https://wiki.acala.network/learn/acala-introduction"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://acala.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Acala",
+        "url": "https://github.com/AcalaNetwork/Acala"
+      },
+      {
+        "label": "Bodhi.js",
+        "url": "https://github.com/AcalaNetwork/bodhi.js"
+      },
+      {
+        "label": "Wormhole Relayer",
+        "url": "https://github.com/AcalaNetwork/wormhole-relayer"
+      },
+      {
+        "label": "Acala Wiki",
+        "url": "https://github.com/AcalaNetwork/acala-wiki"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/AcalaNetwork"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "defi",
+      "evm",
+      "nft",
+      "staking"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime",
+      "smart-contract"
+    ],
+    "technologies": [
+      "Substrate",
+      "EVM"
+    ],
+    "types": [
+      "platform"
+    ],
+    "rewards": false
+  }
+}
