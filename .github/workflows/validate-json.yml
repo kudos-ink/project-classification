@@ -2,8 +2,11 @@ name: JSON Schema Validation
 
 on:
   pull_request:
+    branches:
+      - '**'
     paths:
       - '**/*.json' # Trigger the workflow for any JSON file changes in PRs
+  workflow_dispatch:
 
 jobs:
   validate:
@@ -11,13 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '14'
+        uses: actions/setup-node@v4
 
       - name: Install JSON Schema Validator and Formats
         run: |
