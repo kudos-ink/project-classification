@@ -138,5 +138,5 @@ body:
     id: rewards
     attributes:
       label: Rewards
-      description: "The project can pay rewards to contributors."
-      default: false
+      options:
+        - label: "The project can pay rewards to contributors."
