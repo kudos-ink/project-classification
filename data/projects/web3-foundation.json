@@ -1,0 +1,51 @@
+{
+  "name": "Web3 Foundation",
+  "slug": "web3-foundation",
+  "description": "The Web3 Foundation nurtures and stewards technologies and applications in the fields of decentralized web software protocols.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "web3.foundation",
+        "url": "https://web3.foundation/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Education",
+        "url": "https://education.web3.foundation/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Schnorrkel",
+        "url": "https://github.com/w3f/schnorrkel"
+      },
+      {
+        "label": "BLS",
+        "url": "https://github.com/w3f/bls"
+      },
+      {
+        "label": "Ring Proof",
+        "url": "https://github.com/w3f/ring-proof"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/Web3foundation"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [],
+    "stackLevels": [],
+    "technologies": [],
+    "types": [],
+    "rewards": false
+  }
+}
