@@ -134,7 +134,7 @@ body:
         - label: service
         - label: dApp
 
-  - type: checkbox
+  - type: checkboxes
     id: rewards
     attributes:
       label: Rewards
