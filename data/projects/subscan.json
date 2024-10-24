@@ -1,0 +1,45 @@
+{
+  "name": "Subscan",
+  "slug": "subscan",
+  "description": "Subscan Explorer: Web3 Portal to the Substrate & EVM Ecosystems",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.subscan.io",
+        "url": "https://www.subscan.io/"
+      }
+    ],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Subscan Issue Tracker",
+        "url": "https://github.com/subscan-explorer/subscan-issue-tracker"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/subscan_io"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "data"
+    ],
+    "stackLevels": [],
+    "technologies": [],
+    "types": [
+      "platform",
+      "tool",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
