@@ -1,5 +1,34 @@
 const fs = require("fs");
 
+// Helper function to filter "_No response_" and empty values
+function filterNoResponse(value) {
+  if (
+    typeof value === "string" &&
+    (value === "_No response_" || !value.trim())
+  ) {
+    return [];
+  }
+  // If value is an array, return the array after filtering any empty strings or "_No response_"
+  if (Array.isArray(value)) {
+    return value.filter((v) => v !== "_No response_" && v.trim() !== "");
+  }
+  return value;
+}
+
+// Helper function to handle fields that might be a single string or a multi-line string
+function handleMultiLineField(input) {
+  if (Array.isArray(input)) {
+    return input;
+  }
+  if (typeof input === "string") {
+    return input
+      .split("\n")
+      .map((item) => item.trim())
+      .filter((item) => item !== "");
+  }
+  return [];
+}
+
 const issueBody = fs.readFileSync(process.argv[2], "utf8");
 
 console.log("Issue body content:", issueBody);
@@ -28,6 +57,7 @@ while ((match = regex.exec(issueBody)) !== null) {
     ].includes(key)
   ) {
     value = filterNoResponse(value);
+    value = handleMultiLineField(value);
   }
 
   const keyMap = {
@@ -63,32 +93,6 @@ if (!data.slug) {
 const output = process.env.GITHUB_OUTPUT;
 fs.writeFileSync(output, `slug=${data.slug}\n`);
 
-function filterNoResponse(value) {
-  if (
-    typeof value === "string" &&
-    (value === "_No response_" || !value.trim())
-  ) {
-    return [];
-  }
-  if (Array.isArray(value)) {
-    return value.filter((v) => v !== "_No response_" && v.trim() !== "");
-  }
-  return value;
-}
-
-function handleMultiLineField(input) {
-  if (Array.isArray(input)) {
-    return input;
-  }
-  if (typeof input === "string") {
-    return input
-      .split("\n")
-      .map((item) => item.trim())
-      .filter((item) => item !== "");
-  }
-  return [];
-}
-
 function filterSelectedCheckboxes(options) {
   return options
     .filter((option) => {
@@ -101,9 +105,8 @@ function filterSelectedCheckboxes(options) {
 }
 
 function mapLabelledEntries(entries, fieldType = "") {
-  if (!Array.isArray(entries)) {
-    return [];
-  }
+  console.log("Mapping labelled entries for field:", fieldType, entries);
+
   return entries.map((entry) => {
     const lastHyphenIndex = entry.lastIndexOf(" - ");
 
@@ -123,6 +126,8 @@ function mapLabelledEntries(entries, fieldType = "") {
     return { label, url };
   });
 }
+
+console.log("Extracted data before processing links:", data);
 
 const outputJson = {
   name: data.name,
