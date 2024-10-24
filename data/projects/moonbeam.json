@@ -1,0 +1,69 @@
+{
+  "name": "Moonbeam",
+  "slug": "moonbeam",
+  "description": "Moonbeam is a smart contract platform for building cross-chain connected applications — enabling users to interact with multiple blockchains at the same time.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "moonbeam.network",
+        "url": "https://moonbeam.network/"
+      },
+      {
+        "label": "moonbeam.foundation",
+        "url": "https://moonbeam.foundation/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Moonbeam Docs",
+        "url": "https://docs.moonbeam.network/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://moonbeam.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Moonbeam",
+        "url": "https://github.com/moonbeam-foundation/moonbeam"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/MoonbeamNetwork"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum",
+      "Moonbeam",
+      "Moonriver"
+    ],
+    "purposes": [
+      "defi",
+      "evm",
+      "nft",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "smart-contract"
+    ],
+    "technologies": [
+      "Substrate",
+      "Solidity"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
