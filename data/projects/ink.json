@@ -1,0 +1,80 @@
+{
+  "name": "Ink!",
+  "slug": "ink",
+  "description": "ink! is a toolkit for developing smart contracts. With Rust and WebAssembly!",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "use.ink",
+        "url": "https://use.ink/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Ink! Docs",
+        "url": "https://use.ink/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Ink!",
+        "url": "https://github.com/use-ink/ink"
+      },
+      {
+        "label": "Ink! Docs",
+        "url": "https://github.com/use-ink/ink-docs"
+      },
+      {
+        "label": "Cargo Contract",
+        "url": "https://github.com/use-ink/cargo-contract"
+      },
+      {
+        "label": "Awesome Ink!",
+        "url": "https://github.com/use-ink/awesome-ink"
+      },
+      {
+        "label": "Ink! Examples",
+        "url": "https://github.com/use-ink/ink-examples"
+      },
+      {
+        "label": "Contracts UI",
+        "url": "https://github.com/use-ink/contracts-ui"
+      },
+      {
+        "label": "Link URL Shortener",
+        "url": "https://github.com/use-ink/link"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/ink_lang"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/inkathon"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "smart-contract"
+    ],
+    "technologies": [
+      "Ink!"
+    ],
+    "types": [
+      "library",
+      "framework"
+    ],
+    "rewards": false
+  }
+}
