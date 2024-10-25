@@ -1,0 +1,97 @@
+{
+  "name": "SubQuery",
+  "slug": "subquery",
+  "description": "SubQuery is a fast, flexible, and reliable open-source data decentralised infrastructure network, providing both RPC and indexed data to consumers around the world.\r\n\r\nThe SubQuery Data Indexer is a open-source data indexer that provides you with custom APIs for your web3 project across all of our supported chains.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "subquery.network",
+        "url": "https://subquery.network/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Academy",
+        "url": "https://academy.subquery.network/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Etherscan",
+        "url": "https://etherscan.io/token/0x09395a2A58DB45db0da254c7EAa5AC469D8bDc85"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Subql",
+        "url": "https://github.com/subquery/subql"
+      },
+      {
+        "label": "Eth Subql",
+        "url": "https://github.com/subquery/ethereum-subql-starter"
+      },
+      {
+        "label": "Network Indexer Services",
+        "url": "https://github.com/subquery/network-indexer-services"
+      },
+      {
+        "label": "Network Clients",
+        "url": "https://github.com/subquery/network-clients"
+      },
+      {
+        "label": "Query Subgraph",
+        "url": "https://github.com/subquery/query-subgraph"
+      },
+      {
+        "label": "Subql Cosmos",
+        "url": "https://github.com/subquery/subql-cosmos"
+      },
+      {
+        "label": "Subql Stellar",
+        "url": "https://github.com/subquery/subql-stellar"
+      },
+      {
+        "label": "Subql Algorand",
+        "url": "https://github.com/subquery/subql-algorand"
+      },
+      {
+        "label": "Subql Near",
+        "url": "https://github.com/subquery/subql-near"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/subquerynetwork"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum",
+      "Stellar",
+      "Near",
+      "Algorand"
+    ],
+    "purposes": [
+      "data",
+      "evm",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "tool",
+      "library",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
