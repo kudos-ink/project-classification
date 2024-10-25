@@ -1,0 +1,73 @@
+{
+  "name": "RegionX",
+  "slug": "region-x",
+  "description": "RegionX is a project aimed at making Web3 more accessible. We are achieving this by making deployment on Polkadot cheaper and easier, encouraging more development.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.regionx.tech",
+        "url": "https://www.regionx.tech/"
+      },
+      {
+        "label": "RegionX App",
+        "url": "https://app.regionx.tech/?network=polkadot"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.regionx.tech/docs"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "RegionX Node",
+        "url": "https://github.com/RegionX-Labs/RegionX-Node"
+      },
+      {
+        "label": "Coretime Hub",
+        "url": "https://github.com/RegionX-Labs/CoretimeHub"
+      },
+      {
+        "label": "Coretime Notifier",
+        "url": "https://github.com/RegionX-Labs/Coretime-Notifier"
+      },
+      {
+        "label": "Coretime Mock",
+        "url": "https://github.com/RegionX-Labs/Coretime-Mock"
+      },
+      {
+        "label": "Corespace Weigher",
+        "url": "https://github.com/RegionX-Labs/CorespaceWeigher"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/RegionXLabs"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Kusama"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
