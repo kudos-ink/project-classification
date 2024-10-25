@@ -1,0 +1,89 @@
+{
+  "name": "Avail",
+  "slug": "avail",
+  "description": "Avail is designed to be a platform that connects different ecosystems by providing a modular, scalable, and interoperable platform.\r\n\r\nAvail's vision is to provide a cohesive, unified user experience within a flexible and modular blockchain ecosystem, drawing on lessons from Web2 to innovate in Web3. Avail is not just building a product; we are pioneering a new category in the blockchain space, paving the way for an era of enhanced scalability and seamless integration.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.availproject.org",
+        "url": "https://www.availproject.org/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.availproject.org/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://avail.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Avail",
+        "url": "https://github.com/availproject/avail"
+      },
+      {
+        "label": "Bridge UI",
+        "url": "https://github.com/availproject/bridge-ui"
+      },
+      {
+        "label": "Bridge API",
+        "url": "https://github.com/availproject/bridge-api"
+      },
+      {
+        "label": "Avail Light Clients",
+        "url": "https://github.com/availproject/avail-light"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/AvailProject"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/y6fHnxZQX8"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/AvailCommunity"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/availproject/"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum",
+      "Arbitrum",
+      "Polygon",
+      "Optimism"
+    ],
+    "purposes": [
+      "bridge",
+      "data",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
