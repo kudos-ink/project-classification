@@ -1,0 +1,65 @@
+{
+  "name": "Apillon",
+  "slug": "apillon",
+  "description": "Apillon is a Web3 development platform for developers and businesses building on Web3. By gathering unified API endpoints, it delivers the functionalities of Polkadot parachains adapted to the standard development process and user-preferred technology stack.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "apillon.io",
+        "url": "https://apillon.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Wiki",
+        "url": "https://wiki.apillon.io/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Apillon SDK",
+        "url": "https://github.com/Apillon/sdk"
+      },
+      {
+        "label": "Embedded Wallet",
+        "url": "https://github.com/Apillon/embedded-wallet"
+      },
+      {
+        "label": "Cloud Function Template",
+        "url": "https://github.com/Apillon/cloud-function-template"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/Apillon"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/yX3gTw36C4"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "smart-contract",
+      "offchain"
+    ],
+    "technologies": [],
+    "types": [
+      "platform",
+      "tool",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
