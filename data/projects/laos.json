@@ -1,0 +1,72 @@
+{
+  "name": "Laos",
+  "slug": "laos",
+  "description": "LAOS Network is the Layer-1 blockchain that allows developers to mint assets on any EVM-compatible blockchain, without paying the gas fees of that chain, without causing congestion, and without requiring users to change network.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "laosnetwork.io",
+        "url": "https://laosnetwork.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.laosnetwork.io/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Laos",
+        "url": "https://blockscout.laos.laosfoundation.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Laos",
+        "url": "https://github.com/freeverseio/laos"
+      },
+      {
+        "label": "Client",
+        "url": "https://github.com/freeverseio/laos-client-api"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/laosnetwork"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/+qI2I19EI-VAzNGVk"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/HgnVEYfX2V"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "evm",
+      "nft",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
