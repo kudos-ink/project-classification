@@ -1,0 +1,75 @@
+{
+  "name": "ChainSafe",
+  "slug": "chainsafe",
+  "description": "ChainSafe is a leading blockchain R&D firm, specializing in protocol engineering, cross-chain interoperability & web3 gaming.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "chainsafe.io",
+        "url": "https://chainsafe.io/"
+      }
+    ],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Polkadot Wallet Snap for MetaMask",
+        "url": "https://github.com/ChainSafe/metamask-snap-polkadot"
+      },
+      {
+        "label": "Lodestar",
+        "url": "https://github.com/ChainSafe/lodestar"
+      },
+      {
+        "label": "Forest",
+        "url": "https://github.com/ChainSafe/forest"
+      },
+      {
+        "label": "Filecoin Common Node API",
+        "url": "https://github.com/ChainSafe/filecoin-common-node-api"
+      },
+      {
+        "label": "Web3 Unity SDK",
+        "url": "https://github.com/ChainSafe/web3.unity"
+      },
+      {
+        "label": "Multix Multisig",
+        "url": "https://github.com/ChainSafe/Multix"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/ChainSafeth"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/DjpAhQvbkw"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum",
+      "Filecoin"
+    ],
+    "purposes": [
+      "data",
+      "evm",
+      "universal"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [],
+    "types": [
+      "platform",
+      "tool",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
