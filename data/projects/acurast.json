@@ -1,0 +1,79 @@
+{
+  "name": "Acurast",
+  "slug": "acurast",
+  "description": "Acurast, disrupting the cloud monopoly with mobile hardware, democratizing and decentralizing the cloud. Where everyone can become part of the decentralized Cloud with their mobile phone. Giving developers complete permisionless access to compute that is trustless, affordable and confidential.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "acurast.com",
+        "url": "https://acurast.com/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.acurast.com/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Acurast Chain",
+        "url": "https://github.com/Acurast/acurast-substrate"
+      },
+      {
+        "label": "Acurast CLI",
+        "url": "https://github.com/Acurast/acurast-cli"
+      },
+      {
+        "label": "Acurast Example Apps",
+        "url": "https://github.com/Acurast/acurast-example-apps"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/Acurast"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/wqgC6b6aKe"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/acurastnetwork"
+      },
+      {
+        "label": "YouTube",
+        "url": "https://www.youtube.com/@acurast"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "data",
+      "oracles",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime",
+      "offchain"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "tool",
+      "mobile",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
