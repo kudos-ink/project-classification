@@ -1,0 +1,76 @@
+{
+  "name": "Darwinia",
+  "slug": "darwinia",
+  "description": "Darwinia is pioneering the development of cutting-edge cross-chain service solutions, with a strategic emphasis on boosting the cross-chain functionalities of decentralized applications.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "darwinia.network",
+        "url": "https://darwinia.network/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.darwinia.network/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://darwinia.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Darwinia",
+        "url": "https://github.com/darwinia-network/darwinia"
+      },
+      {
+        "label": "Collator UI V2",
+        "url": "https://github.com/darwinia-network/collator-staking-ui-v2"
+      },
+      {
+        "label": "Omni Balance",
+        "url": "https://github.com/darwinia-network/omni-balance"
+      },
+      {
+        "label": "Darwinia Home",
+        "url": "https://github.com/darwinia-network/home"
+      },
+      {
+        "label": "Darwinia Docs",
+        "url": "https://github.com/darwinia-network/docs"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/DarwiniaNetwork"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "evm",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime",
+      "smart-contract"
+    ],
+    "technologies": [
+      "Substrate",
+      "EVM"
+    ],
+    "types": [
+      "platform"
+    ],
+    "rewards": false
+  }
+}
