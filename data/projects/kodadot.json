@@ -1,0 +1,85 @@
+{
+  "name": "KodaDot",
+  "slug": "kodadot",
+  "description": "KodaDot is an open-source NFT marketplace built on the Polkadot network. Our mission is to create an inclusive platform for collaboration where creators, developers, and community members can work together to shape the future of NFTs on Polkadot.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "kodadot.xyz",
+        "url": "https://kodadot.xyz/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://hello.kodadot.xyz/"
+      },
+      {
+        "label": "Developer Docs",
+        "url": "https://developers.kodadot.xyz/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "NFT Gallery",
+        "url": "https://github.com/kodadot/nft-gallery"
+      },
+      {
+        "label": "CloudFlare Workers",
+        "url": "https://github.com/kodadot/workers"
+      },
+      {
+        "label": "Sticks",
+        "url": "https://github.com/kodadot/stick"
+      },
+      {
+        "label": "Uptime",
+        "url": "https://github.com/kodadot/uptime"
+      },
+      {
+        "label": "Uniquery",
+        "url": "https://github.com/kodadot/uniquery"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/KodaDot"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/koda_eco"
+      },
+      {
+        "label": "Farcaster",
+        "url": "https://warpcast.com/~/channel/koda"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/kodadot"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Kusama"
+    ],
+    "purposes": [
+      "nft"
+    ],
+    "stackLevels": [
+      "protocol"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
