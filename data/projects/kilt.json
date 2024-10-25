@@ -1,0 +1,84 @@
+{
+  "name": "KILT",
+  "slug": "kilt",
+  "description": "KILT is a protocol for self-sovereign data and interoperability built on top of the permissionless KILT blockchain.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.kilt.io",
+        "url": "https://www.kilt.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.kilt.io/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "KILT SDK",
+        "url": "https://github.com/KILTprotocol/sdk-js"
+      },
+      {
+        "label": "KILT Node",
+        "url": "https://github.com/KILTprotocol/kilt-node"
+      },
+      {
+        "label": "KILT Docs",
+        "url": "https://github.com/KILTprotocol/docs"
+      },
+      {
+        "label": "KILT Login Demo",
+        "url": "https://github.com/KILTprotocol/web3-login-demo"
+      },
+      {
+        "label": "OpenDID",
+        "url": "https://github.com/KILTprotocol/opendid"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/Kiltprotocol"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/KILTProtocolChat"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/HztRqvzbhG"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/kilt-protocol/"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "offchain"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "tool",
+      "framework",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
