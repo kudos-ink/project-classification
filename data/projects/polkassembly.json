@@ -1,0 +1,62 @@
+{
+  "name": "Polkassembly",
+  "slug": "polkassembly",
+  "description": "Welcome to Polkassembly, the premier platform for governance and collaboration in the Polkadot ecosystem. Our mission is to empower the community with the tools needed for effective decision-making and engagement.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "polkassembly.io",
+        "url": "https://polkassembly.io/"
+      }
+    ],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Polkassembly",
+        "url": "https://github.com/polkassembly/polkassembly"
+      },
+      {
+        "label": "Fellowship",
+        "url": "https://github.com/polkassembly/fellowship"
+      },
+      {
+        "label": "Governance UI",
+        "url": "https://github.com/polkassembly/governance-ui"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/polk_gov"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/CYmYWHgPha"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/+6WQDzi6RuIw3YzY1"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "governance"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [],
+    "types": [
+      "platform",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
