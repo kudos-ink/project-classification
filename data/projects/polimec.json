@@ -1,0 +1,66 @@
+{
+  "name": "Polimec",
+  "slug": "polimec",
+  "description": "Polimec is a decentralized community-driven funding protocol developed on Polkadot to accelerate the Web3 ecosystem. The open-source and module-based blockchain system facilitates fundraising in a regulatory compliant and sustainable manner using on-chain credentials.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.polimec.org",
+        "url": "https://www.polimec.org/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://hub.polimec.org/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Polimec Explorer",
+        "url": "https://explorer.polimec.org/polimec"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Polimec Node",
+        "url": "https://github.com/Polimec/polimec-node"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/PolimecProtocol"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/4CZh8HNVuT"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/polimec-foundation/"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "defi"
+    ],
+    "stackLevels": [
+      "protocol"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
