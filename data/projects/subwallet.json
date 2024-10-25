@@ -1,0 +1,68 @@
+{
+  "name": "SubWallet",
+  "slug": "subwallet",
+  "description": "Comprehensive non-custodial wallet solution for Polkadot, Substrate & Ethereum ecosystems",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.subwallet.app",
+        "url": "https://www.subwallet.app/"
+      }
+    ],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "SubWallet Extension",
+        "url": "https://github.com/Koniverse/SubWallet-Extension"
+      },
+      {
+        "label": "SubWallet Mobile",
+        "url": "https://github.com/Koniverse/SubWallet-Mobile"
+      },
+      {
+        "label": "Playnation",
+        "url": "https://github.com/Koniverse/Playnation"
+      },
+      {
+        "label": "Playnation API",
+        "url": "https://github.com/Koniverse/PlaynationAPI"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/subwalletapp"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/subwallet"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/PvjV5mu6Gq"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "staking",
+      "universal"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [],
+    "types": [
+      "tool",
+      "mobile",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
