@@ -1,0 +1,91 @@
+{
+  "name": "Ava Protocol",
+  "slug": "ava-protocol",
+  "description": "Ava Protocol empowers private autonomous transactions for Ethereum, Polkadot and beyond.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "avaprotocol.org",
+        "url": "https://avaprotocol.org/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Ethereum Docs",
+        "url": "https://avaprotocol.org/docs/ethereum/getting-started/introduction"
+      },
+      {
+        "label": "Polkadot Docs",
+        "url": "https://avaprotocol.org/docs/polkadot/network/overview"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://turing.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Ava SDK",
+        "url": "https://github.com/AvaProtocol/ava-sdk-js"
+      },
+      {
+        "label": "EigenLayer AVS",
+        "url": "https://github.com/AvaProtocol/EigenLayer-AVS"
+      },
+      {
+        "label": "XCM Demo",
+        "url": "https://github.com/AvaProtocol/xcm-demo"
+      },
+      {
+        "label": "Oak JS",
+        "url": "https://github.com/AvaProtocol/oak.js"
+      },
+      {
+        "label": "Docs",
+        "url": "https://github.com/AvaProtocol/OAK-docs"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/ava_protocol"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/ava_protocol"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/7W9UDvsbwh"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Ethereum",
+      "Polkadot",
+      "EigenLayer"
+    ],
+    "purposes": [
+      "defi",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime"
+    ],
+    "technologies": [
+      "Substrate",
+      "EVM"
+    ],
+    "types": [
+      "platform",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
