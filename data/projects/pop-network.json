@@ -1,0 +1,70 @@
+{
+  "name": "Pop Network",
+  "slug": "pop-network",
+  "description": "Pop Network makes it easy for smart contract developers to use the Power of Polkadot. Pop consists of two main products: Pop CLI and Pop Network.\r\n\r\nPop CLI provides an on-ramp for development on Polkadot by providing a simple command line interface for quickly creating, building, testing, and deploying a Polkadot solution - whether smart contract or complete Polkadot appchain (parachain).\r\n\r\nPop Network is a Polkadot smart contract platform. Developers can write smart contracts and use the DOT token to deploy their smart contracts to Pop Network.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "onpop.io",
+        "url": "https://onpop.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Learn On Pop",
+        "url": "https://learn.onpop.io/"
+      },
+      {
+        "label": "GitHub Docs",
+        "url": "https://github.com/r0gue-io/pop-docs"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Pop Cli",
+        "url": "https://github.com/r0gue-io/pop-cli"
+      },
+      {
+        "label": "Pop Node",
+        "url": "https://github.com/r0gue-io/pop-node"
+      },
+      {
+        "label": "Pop DRink!",
+        "url": "https://github.com/r0gue-io/pop-drink"
+      },
+      {
+        "label": "Pop Docs",
+        "url": "https://github.com/r0gue-io/pop-docs"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/onpopio"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "defi",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime"
+    ],
+    "technologies": [
+      "Substrate",
+      "Ink!"
+    ],
+    "types": [
+      "platform"
+    ],
+    "rewards": false
+  }
+}
