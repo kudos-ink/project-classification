@@ -1,0 +1,91 @@
+{
+  "name": "Centrifuge",
+  "slug": "centrifuge",
+  "description": "Centrifuge is the pioneering platform for real-world asset tokenization. Through Centrifuge, investors gain access to a diverse range of assets, improving transparency and achieving better insight into their portfolio. Asset managers tokenize their funds and streamline access to necessary service providers and investors, saving cost for fund operations and unlocking new sources of capital.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "centrifuge.io",
+        "url": "https://centrifuge.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.centrifuge.io/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://centrifuge.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Centrifuge Chain",
+        "url": "https://github.com/centrifuge/centrifuge-chain"
+      },
+      {
+        "label": "Documentation",
+        "url": "https://github.com/centrifuge/documentation"
+      },
+      {
+        "label": "Centrifuge SDK",
+        "url": "https://github.com/centrifuge/centrifuge-sdk"
+      },
+      {
+        "label": "Centrifuge GO RPC Client",
+        "url": "https://github.com/centrifuge/go-substrate-rpc-client"
+      },
+      {
+        "label": "Subquery Pools",
+        "url": "https://github.com/centrifuge/pools-subql"
+      },
+      {
+        "label": "Centrifuge Apps",
+        "url": "https://github.com/centrifuge/apps"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/centrifuge"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/yEzyUq5gxF"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/centrifugehq"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/centrifuge_chat"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "defi",
+      "staking"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
