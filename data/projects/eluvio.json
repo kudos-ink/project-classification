@@ -1,0 +1,78 @@
+{
+  "name": "Eluvio",
+  "slug": "eluvio",
+  "description": "The Content Fabric is a programmable streaming, content distribution, and storage network built for the Third Generation Internet.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "eluv.io",
+        "url": "https://eluv.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.eluv.io/docs/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "ELV Wallet",
+        "url": "https://github.com/eluv-io/elv-media-wallet"
+      },
+      {
+        "label": "ELV Android Wallet",
+        "url": "https://github.com/eluv-io/elv-wallet-android"
+      },
+      {
+        "label": "ELV Live Stream",
+        "url": "https://github.com/eluv-io/elv-live-stream"
+      },
+      {
+        "label": "ELV Core",
+        "url": "https://github.com/eluv-io/elv-core-js"
+      },
+      {
+        "label": "ELV Video Editor",
+        "url": "https://github.com/eluv-io/elv-video-editor"
+      },
+      {
+        "label": "Golang AV Pipeline",
+        "url": "https://github.com/eluv-io/avpipe"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/eluvioinc"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/Mu9GzdutwF"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "data",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "offchain"
+    ],
+    "technologies": [],
+    "types": [
+      "platform",
+      "library",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
