@@ -1,0 +1,72 @@
+{
+  "name": "Tanssi",
+  "slug": "tanssi",
+  "description": "Tanssi is an appchain infrastructure protocol that equips developers with a broad set of infrastructure tools and services specifically designed to make appchain deployment swift and effortless.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.tanssi.network",
+        "url": "https://www.tanssi.network/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.tanssi.network/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Subscan",
+        "url": "https://dancebox.subscan.io/"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Tanssi",
+        "url": "https://github.com/moondance-labs/tanssi"
+      },
+      {
+        "label": "Tanssi Docs",
+        "url": "https://github.com/moondance-labs/tanssi-docs"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/TanssiNetwork"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/tanssiofficial"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/tw7muAspeW"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "tool",
+      "service",
+      "dApp"
+    ],
+    "rewards": false
+  }
+}
