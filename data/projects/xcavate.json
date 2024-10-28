@@ -1,0 +1,70 @@
+{
+  "name": "Xcavate",
+  "slug": "xcavate",
+  "description": "Xcavate is a decentralised and community-driven protocol for real estate investments and tokenisation.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "xcavate.io",
+        "url": "https://xcavate.io/"
+      },
+      {
+        "label": "realxdeal.xcavate.io",
+        "url": "https://realxdeal.xcavate.io/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "GitBook",
+        "url": "https://xcavate-1.gitbook.io/xcavate-docs/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "RealXDeal Node",
+        "url": "https://github.com/XcavateBlockchain/realXdeal_game"
+      },
+      {
+        "label": "RealXDeal Front End",
+        "url": "https://github.com/XcavateBlockchain/RealXDeal.Dapp"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/xcavateofficial"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.com/invite/AqE9Qwf7Dz"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/xcavatei0"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "defi",
+      "nft",
+      "rwa"
+    ],
+    "stackLevels": [
+      "protocol"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "dApp"
+    ],
+    "rewards": true
+  }
+}
