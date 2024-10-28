@@ -1,8 +1,8 @@
 {
   "name": "Nova Wallet",
   "slug": "nova-wallet",
-  "description": "Nova Wallet is a next-gen iOS/Android application for the Polkadot & Kusama ecosystem, which provides the ultimate mobile wallet experience! Supporting over 80+ networks and hundreds of assets, Governance, NFTs, extensive DApp support (for both Substrate & EVM), Crowdloans, and staking of assets including DOT, KSM, GLMR, MOVR, AZERO, PDEX, CAPS, TUR, ZTG and KMA!",
-  "richText": "",
+  "description": "Nova Wallet is a next-gen iOS/Android application for the Polkadot & Kusama ecosystem.",
+  "richText": "Nova Wallet is a next-gen iOS/Android application for the Polkadot & Kusama ecosystem, which provides the ultimate mobile wallet experience! Supporting over 80+ networks and hundreds of assets, Governance, NFTs, extensive DApp support (for both Substrate & EVM), Crowdloans, and staking of assets including DOT, KSM, GLMR, MOVR, AZERO, PDEX, CAPS, TUR, ZTG and KMA!",
   "links": {
     "website": [
       {
