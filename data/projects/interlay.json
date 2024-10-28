@@ -1,8 +1,8 @@
 {
   "name": "Interlay",
   "slug": "interlay",
-  "description": "Interlay is a modular, programmable layer between Bitcoin and the multi-chain ecosystem that unlocks decentralized (financial) use cases for BTC.\r\n\r\nInterlay’s vision is to help Bitcoin achieve mass adoption by unlocking decentralized (financial) use cases for BTC and removing the need for centralized services. Interlay’s achieves this by creating the necessary infrastructure and financial tooling for both users and builders",
-  "richText": "",
+  "description": "Interlay is a modular, programmable layer between Bitcoin and the multi-chain ecosystem that unlocks decentralized (financial) use cases for BTC.",
+  "richText": "Interlay is a modular, programmable layer between Bitcoin and the multi-chain ecosystem that unlocks decentralized (financial) use cases for BTC.\r\n\r\nInterlay’s vision is to help Bitcoin achieve mass adoption by unlocking decentralized (financial) use cases for BTC and removing the need for centralized services. Interlay’s achieves this by creating the necessary infrastructure and financial tooling for both users and builders",
   "links": {
     "website": [
       {

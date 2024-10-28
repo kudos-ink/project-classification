@@ -1,8 +1,8 @@
 {
   "name": "Apillon",
   "slug": "apillon",
-  "description": "Apillon is a Web3 development platform for developers and businesses building on Web3. By gathering unified API endpoints, it delivers the functionalities of Polkadot parachains adapted to the standard development process and user-preferred technology stack.",
-  "richText": "",
+  "description": "Apillon is a Web3 development platform for developers and businesses building on Web3.",
+  "richText": "Apillon is a Web3 development platform for developers and businesses building on Web3. By gathering unified API endpoints, it delivers the functionalities of Polkadot parachains adapted to the standard development process and user-preferred technology stack.",
   "links": {
     "website": [
       {

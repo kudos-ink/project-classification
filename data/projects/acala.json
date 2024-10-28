@@ -1,8 +1,8 @@
 {
   "name": "Acala Network",
   "slug": "acala",
-  "description": "Acala is a decentralized liquidity blockchain that offers unified liquidity and built-in cross-chain capabilities. Acala’s key products, LDOT and Euphrates, exemplify its mission by providing a liquid staking solution, a liquidity distribution platform, and a liquidity center ideal for building robust decentralized applications. These solutions empower users globally to stake assets, maintain liquidity, and participate in a variety of financial activities.",
-  "richText": "",
+  "description": "Acala is a decentralized liquidity blockchain that offers unified liquidity and built-in cross-chain capabilities.",
+  "richText": "Acala’s key products, LDOT and Euphrates, exemplify its mission by providing a liquid staking solution, a liquidity distribution platform, and a liquidity center ideal for building robust decentralized applications. These solutions empower users globally to stake assets, maintain liquidity, and participate in a variety of financial activities.",
   "links": {
     "website": [
       {

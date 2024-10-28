@@ -1,8 +1,8 @@
 {
   "name": "KodaDot",
   "slug": "kodadot",
-  "description": "KodaDot is an open-source NFT marketplace built on the Polkadot network. Our mission is to create an inclusive platform for collaboration where creators, developers, and community members can work together to shape the future of NFTs on Polkadot.",
-  "richText": "",
+  "description": "KodaDot is an open-source NFT marketplace built on the Polkadot network.",
+  "richText": "KodaDot is an open-source NFT marketplace built on the Polkadot network. Our mission is to create an inclusive platform for collaboration where creators, developers, and community members can work together to shape the future of NFTs on Polkadot.",
   "links": {
     "website": [
       {

@@ -2,7 +2,7 @@
   "name": "Ava Protocol",
   "slug": "ava-protocol",
   "description": "Ava Protocol empowers private autonomous transactions for Ethereum, Polkadot and beyond.",
-  "richText": "",
+  "richText": "Ava Protocol is Web3’s hub for cross-chain automation, enabling multi-chain apps to schedule and automate any EVM-based transaction or smart contract function. It delivers trustless automation by dedicating block space and optimizing gas usage to store and execute transactions across connected blockchains.",
   "links": {
     "website": [
       {
