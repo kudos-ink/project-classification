@@ -1,0 +1,59 @@
+{
+  "name": "OpenZeppelin",
+  "slug": "open-zeppelin",
+  "description": "The standard for secure onchain applications at any scale",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.openzeppelin.com",
+        "url": "https://www.openzeppelin.com/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "Docs",
+        "url": "https://docs.openzeppelin.com/"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Polkadot Runtime Templates",
+        "url": "https://github.com/OpenZeppelin/polkadot-runtime-templates"
+      },
+      {
+        "label": "Polkadot Runtime Wrappers",
+        "url": "https://github.com/OpenZeppelin/polkadot-runtime-wrappers"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/OpenZeppelin"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum"
+    ],
+    "purposes": [
+      "testing",
+      "universal"
+    ],
+    "stackLevels": [
+      "runtime",
+      "smart-contract"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "template",
+      "service"
+    ],
+    "rewards": false
+  }
+}
