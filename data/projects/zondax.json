@@ -1,0 +1,46 @@
+{
+  "name": "Zondax",
+  "slug": "zondax",
+  "description": "Zondax, a leading blockchain service provider based in Switzerland.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "zondax.ch",
+        "url": "https://zondax.ch/"
+      }
+    ],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Ledger Polkadot",
+        "url": "https://github.com/Zondax/ledger-polkadot"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/_zondax_"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Ethereum",
+      "Algorand"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [],
+    "types": [
+      "tool"
+    ],
+    "rewards": false
+  }
+}
