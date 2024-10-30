@@ -1,0 +1,89 @@
+{
+  "name": "Acala",
+  "slug": "Acala",
+  "description": "Acala is building the liquidity layer for web3 finance that is captive and sustainable.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "acala.network",
+        "url": "https://acala.network"
+      }
+    ],
+    "docs": [
+      {
+        "label": "",
+        "url": "https://wiki.acala.network"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "",
+        "url": "https://acala.subscan.io"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Runtime",
+        "url": "https://github.com/AcalaNetwork/Acala"
+      },
+      {
+        "label": "Node",
+        "url": "https://github.com/AcalaNetwork/acala-node"
+      },
+      {
+        "label": "SDK",
+        "url": "https://github.com/AcalaNetwork/acala.js"
+      },
+      {
+        "label": "EVM SDK",
+        "url": "https://github.com/AcalaNetwork/bodhi.js"
+      },
+      {
+        "label": "Chopsticks",
+        "url": "https://github.com/AcalaNetwork/chopsticks"
+      },
+      {
+        "label": "ORML",
+        "url": "https://github.com/open-web3-stack/open-runtime-module-library"
+      }
+    ],
+    "social": [
+      {
+        "label": "X",
+        "url": "https://x.com/AcalaNetwork/"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.gg/xZfRD6rVfJ"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/acalanetwork"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "defi",
+      "evm",
+      "staking"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime"
+    ],
+    "technologies": [
+      "Substrate"
+    ],
+    "types": [
+      "platform",
+      "tool",
+      "library"
+    ],
+    "rewards": false
+  }
+}
