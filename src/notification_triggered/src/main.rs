@@ -74,6 +74,16 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
         .execute(&mut *tx).await?;
     }
 
+    sqlx::query(
+        r#"
+        UPDATE issues
+        SET certified = true
+        WHERE (certified = false OR certified IS NULL) AND 'kudos' = ANY(labels)
+        "#,
+    )
+    .execute(&mut *tx)
+    .await?;
+
     tx.commit().await?;
 
     Ok(Res {

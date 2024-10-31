@@ -233,7 +233,7 @@ pub async fn import_repositories(
         r#"
         UPDATE issues
         SET certified = true
-        WHERE certified = false AND 'kudos' = ANY(labels)
+        WHERE (certified = false OR certified IS NULL) AND 'kudos' = ANY(labels)
         "#,
     )
     .execute(&mut **tx)
