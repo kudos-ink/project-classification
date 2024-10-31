@@ -1,75 +1,74 @@
 {
-  "name": "Acala Network",
-  "slug": "acala",
-  "description": "Acala is a decentralized liquidity blockchain that offers unified liquidity and built-in cross-chain capabilities.",
-  "richText": "Acala’s key products, LDOT and Euphrates, exemplify its mission by providing a liquid staking solution, a liquidity distribution platform, and a liquidity center ideal for building robust decentralized applications. These solutions empower users globally to stake assets, maintain liquidity, and participate in a variety of financial activities.",
+  "name": "Acala",
+  "slug": "Acala",
+  "description": "Acala is building the liquidity layer for web3 finance that is captive and sustainable.",
+  "richText": "Acala's key products, LDOT and Euphrates, exemplify its mission by providing a liquid staking solution, a liquidity distribution platform, and a liquidity center ideal for building robust decentralized applications. These solutions empower users globally to stake assets, maintain liquidity, and participate in a variety of financial activities.",
   "links": {
     "website": [
       {
         "label": "acala.network",
-        "url": "https://acala.network/"
+        "url": "https://acala.network"
       }
     ],
     "docs": [
       {
-        "label": "Acala Wiki",
-        "url": "https://wiki.acala.network/learn/acala-introduction"
+        "label": "",
+        "url": "https://wiki.acala.network"
       }
     ],
     "explorer": [
       {
-        "label": "Subscan",
-        "url": "https://acala.subscan.io/"
+        "label": "",
+        "url": "https://acala.subscan.io"
       }
     ],
     "repository": [
       {
-        "label": "Acala",
+        "label": "Runtime",
         "url": "https://github.com/AcalaNetwork/Acala"
       },
       {
-        "label": "Bodhi.js",
+        "label": "Node",
+        "url": "https://github.com/AcalaNetwork/acala-node"
+      },
+      {
+        "label": "SDK",
+        "url": "https://github.com/AcalaNetwork/acala.js"
+      },
+      {
+        "label": "EVM SDK",
         "url": "https://github.com/AcalaNetwork/bodhi.js"
       },
       {
-        "label": "Wormhole Relayer",
-        "url": "https://github.com/AcalaNetwork/wormhole-relayer"
+        "label": "Chopsticks",
+        "url": "https://github.com/AcalaNetwork/chopsticks"
       },
       {
-        "label": "Acala Wiki",
-        "url": "https://github.com/AcalaNetwork/acala-wiki"
+        "label": "ORML",
+        "url": "https://github.com/open-web3-stack/open-runtime-module-library"
       }
     ],
     "social": [
       {
-        "label": "X/Twitter",
-        "url": "https://x.com/AcalaNetwork"
+        "label": "X",
+        "url": "https://x.com/AcalaNetwork/"
+      },
+      {
+        "label": "Discord",
+        "url": "https://discord.gg/xZfRD6rVfJ"
+      },
+      {
+        "label": "LinkedIn",
+        "url": "https://www.linkedin.com/company/acalanetwork"
       }
     ]
   },
   "attributes": {
-    "networks": [
-      "Polkadot",
-      "Ethereum"
-    ],
-    "purposes": [
-      "defi",
-      "evm",
-      "nft",
-      "staking"
-    ],
-    "stackLevels": [
-      "protocol",
-      "runtime",
-      "smart-contract"
-    ],
-    "technologies": [
-      "Substrate",
-      "EVM"
-    ],
-    "types": [
-      "platform"
-    ],
+    "networks": ["Polkadot"],
+    "purposes": ["defi", "evm", "staking"],
+    "stackLevels": ["protocol", "runtime"],
+    "technologies": ["Substrate"],
+    "types": ["platform", "tool", "library"],
     "rewards": false
   }
 }
