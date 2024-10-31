@@ -5,6 +5,7 @@ use shared::types::{AsyncLambdaPayload, KudosIssue, Res};
 use sqlx::PgPool;
 use sqlx::Row;
 use std::env;
+use std::fmt::format;
 
 /*
 Receives issue details as payload
@@ -32,16 +33,17 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
         &issue_details.owner, &issue_details.repo
     );
 
-    let repo_id_row = sqlx::query("SELECT id FROM repositories WHERE url = $1") // make url unique
+    let repo_id_rows = sqlx::query("SELECT id FROM repositories WHERE url = $1") // make url unique
         .bind(&repo_url)
-        .fetch_one(&mut *tx)
+        .fetch_all(&mut *tx)
         .await?;
 
-    let repo_id: i32 = repo_id_row.get("id");
+    for repo_id_row in repo_id_rows {
+        let repo_id: i32 = repo_id_row.get("id");
 
-    let username_to_id = get_username_map(&mut tx).await?;
+        let username_to_id = get_username_map(&mut tx).await?;
 
-    let insert_count = sqlx::query(
+        sqlx::query(
         r#"
         INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open, certified, description)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
@@ -57,27 +59,28 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
             certified = EXCLUDED.certified,
             description = EXCLUDED.description
         "#
-    )
-     .bind(&kudos_issue.number)
-     .bind(&kudos_issue.title)
-     .bind(&kudos_issue.labels)
-     .bind(repo_id)
-     .bind(&kudos_issue.issue_created_at)
-     .bind(&kudos_issue.issue_closed_at)
-     .bind(if let Some(assignee) = kudos_issue.assignee {
-                    username_to_id.get(&assignee)
-                } else {
-                    None
-                })
-    .bind(&kudos_issue.issue_closed_at.is_none())
-    .bind(&kudos_issue.certified)
-    .bind(&kudos_issue.description)
-    .execute(&mut *tx).await?.rows_affected();
+        )
+        .bind(&kudos_issue.number)
+        .bind(&kudos_issue.title)
+        .bind(&kudos_issue.labels)
+        .bind(repo_id)
+        .bind(&kudos_issue.issue_created_at)
+        .bind(&kudos_issue.issue_closed_at)
+        .bind(if let Some(assignee) = &kudos_issue.assignee {
+                        username_to_id.get(assignee)
+                    } else {
+                        None
+                    })
+        .bind(&kudos_issue.issue_closed_at.is_none())
+        .bind(&kudos_issue.certified)
+        .bind(&kudos_issue.description)
+        .execute(&mut *tx).await?;
+    }
 
     tx.commit().await?;
 
     Ok(Res {
-        message: format!("Insert/Update count {}", insert_count),
+        message: "Insert/Update successful".to_string(),
     })
 }
 

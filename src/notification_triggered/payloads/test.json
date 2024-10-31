@@ -91,5 +91,9 @@
     "requestTimeEpoch": 1589522469693,
     "apiId": "gy415nuibc"
   },
-  "body": "{\"repo\": \"project-classification\", \"owner\":\"kudos-ink\", \"issue_number\": 2}"
+  "responsePayload": {
+    "repo": "chopsticks",
+    "owner": "AcalaNetwork",
+    "issue_number": 848
+  }
 }
