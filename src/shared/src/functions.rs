@@ -82,11 +82,7 @@ pub async fn import_repositories(
 
         let language = repo_data
             .language
-            .ok_or_else(|| Error::from("No repo language"))?
-            .as_str()
-            .ok_or_else(|| Error::from("Can't get language as string"))?
-            .to_string()
-            .to_lowercase();
+            .and_then(|lang| lang.as_str().map(|s| s.to_lowercase()));
 
         let repo_query = repo.insert_respository_query();
         let repo_row = sqlx::query(repo_query)
