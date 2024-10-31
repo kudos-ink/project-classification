@@ -5,7 +5,6 @@ use shared::types::{AsyncLambdaPayload, KudosIssue, Res};
 use sqlx::PgPool;
 use sqlx::Row;
 use std::env;
-use std::fmt::format;
 
 /*
 Receives issue details as payload
@@ -45,8 +44,8 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
 
         sqlx::query(
         r#"
-        INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open, certified, description)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)
+        INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open, description)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
         ON CONFLICT (repository_id, number)
         DO UPDATE SET
             title = EXCLUDED.title,
@@ -56,7 +55,6 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
             issue_closed_at = EXCLUDED.issue_closed_at,
             assignee_id = EXCLUDED.assignee_id,
             open = EXCLUDED.open,
-            certified = EXCLUDED.certified,
             description = EXCLUDED.description
         "#
         )
@@ -72,7 +70,6 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
                         None
                     })
         .bind(&kudos_issue.issue_closed_at.is_none())
-        .bind(&kudos_issue.certified)
         .bind(&kudos_issue.description)
         .execute(&mut *tx).await?;
     }
