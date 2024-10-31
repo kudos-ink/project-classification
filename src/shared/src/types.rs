@@ -72,11 +72,9 @@ impl Repository {
         let query_string = r#"
         INSERT INTO repositories (slug, name, url, language_slug, project_id)
         VALUES ($1, $2, $3, $4, $5)
-        ON CONFLICT (url)
+        ON CONFLICT (url, slug, project_id)
         DO UPDATE SET
-            slug = EXCLUDED.slug,
             name = EXCLUDED.name,
-            project_id = EXCLUDED.project_id,
             language_slug = EXCLUDED.language_slug
         RETURNING id;
         "#;
