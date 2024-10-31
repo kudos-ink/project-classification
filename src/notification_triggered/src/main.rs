@@ -50,7 +50,6 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
         DO UPDATE SET
             title = EXCLUDED.title,
             labels = EXCLUDED.labels,
-            repository_id = EXCLUDED.repository_id,
             issue_created_at = EXCLUDED.issue_created_at,
             issue_closed_at = EXCLUDED.issue_closed_at,
             assignee_id = EXCLUDED.assignee_id,
