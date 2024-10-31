@@ -1,29 +1,51 @@
 {
-  "name": "Kudos Portal",
+  "name": "PlutoWallet",
   "slug": "kudos",
-  "description": "A Portal for Agile Devtime - The Platform to Connect Teams and Skilled Contributors in the Polkadot Ecosystem.",
-  "richText": "Kudos is a platform designed to streamline the process of onboarding new developers to the Polkadot ecosystem.\r\n\r\nWe make it simple to navigate, search and filter open GitHub contributions across the entire ecosystem, allowing aspiring contributors to find projects and tasks, which match their skill level and interests.",
+  "description": "Multi-platform mobile wallet for substrate-based chains. Focuses on the best UX. First C# mobile wallet in Polkadot ecosystem.",
+  "richText": "",
   "links": {
-    "website": [{ "label": "morekudos.com", "url": "https://morekudos.com" }],
-    "docs": [
-      { "label": "Add Your Project to Kudos", "url": "https://github.com/kudos-ink/project-classification/blob/main/README.md" }
-    ],
+    "website": [],
+    "docs": [],
     "explorer": [],
     "repository": [
-      { "label": "Kudos Portal", "url": "https://github.com/kudos-ink/portal" },
       {
-        "label": "Kudos API",
-        "url": "https://github.com/kudos-ink/issues-api"
+        "label": "",
+        "url": "https://github.com/rostislavlitovkin/plutowallet"
       }
     ],
-    "social": [{ "label": "X/Twitter", "url": "https://x.com/KudosPortal" }]
+    "social": [
+      {
+        "label": "",
+        "url": "https://x.com/_PlutoWallet_"
+      }
+    ]
   },
   "attributes": {
-    "networks": [],
-    "purposes": ["data"],
-    "stackLevels": ["offchain"],
-    "technologies": [],
-    "types": ["dApp"],
-    "rewards": false
+    "networks": [
+      "All substrate based chains."
+    ],
+    "purposes": [
+      "data",
+      "nft",
+      "staking",
+      "universal"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [
+      "Polkadot Unity SDK (Substrate.Net.Api, Substrate.Net.Toolchain)",
+      "C#",
+      ".Net MAUI",
+      "Nethereum",
+      "StrawberryShake"
+    ],
+    "types": [
+      "client",
+      "framework",
+      "mobile",
+      "service"
+    ],
+    "rewards": true
   }
 }
