@@ -196,7 +196,16 @@ pub async fn import_repositories(
             .join(", ");
 
         let query_string = format!(
-            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_id, description) VALUES {}",
+            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_id, description) VALUES {}
+             ON CONFLICT (repository_id, number)
+             DO UPDATE SET
+                title = EXCLUDED.title,
+                labels = EXCLUDED.labels,
+                issue_created_at = EXCLUDED.issue_created_at,
+                issue_closed_at = EXCLUDED.issue_closed_at,
+                open = EXCLUDED.open,
+                assignee_id = EXCLUDED.assignee_id,
+                description = EXCLUDED.description",
             placeholders
         );
 
