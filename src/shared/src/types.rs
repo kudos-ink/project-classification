@@ -32,7 +32,7 @@ pub struct KudosIssue {
     pub issue_closed_at: Option<DateTime<Utc>>,
     pub creator: String,
     pub assignee: Option<String>,
-    pub certified: bool,
+    // pub certified: bool,
     pub labels: Vec<String>,
     pub description: Option<String>,
 }
@@ -54,7 +54,7 @@ impl From<Issue> for KudosIssue {
             issue_closed_at: value.closed_at,
             creator: value.user.login,
             assignee: value.assignee.map(|assignee| assignee.login),
-            certified: labels.contains(&String::from("kudos")),
+            // certified: labels.contains(&String::from("kudos")),
             labels,
             description: value.body,
         }
