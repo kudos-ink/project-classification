@@ -1,0 +1,51 @@
+{
+  "name": "PlutoWallet",
+  "slug": "pluto-wallet",
+  "description": "Multi-platform mobile wallet for substrate-based chains. Focuses on the best UX. First C# mobile wallet in Polkadot ecosystem.",
+  "richText": "",
+  "links": {
+    "website": [],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "",
+        "url": "https://github.com/rostislavlitovkin/plutowallet"
+      }
+    ],
+    "social": [
+      {
+        "label": "",
+        "url": "https://x.com/_PlutoWallet_"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "All substrate based chains."
+    ],
+    "purposes": [
+      "data",
+      "nft",
+      "staking",
+      "universal"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [
+      "Polkadot Unity SDK (Substrate.Net.Api, Substrate.Net.Toolchain)",
+      "C#",
+      ".Net MAUI",
+      "Nethereum",
+      "StrawberryShake"
+    ],
+    "types": [
+      "client",
+      "framework",
+      "mobile",
+      "service"
+    ],
+    "rewards": true
+  }
+}
