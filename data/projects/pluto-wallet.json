@@ -2,20 +2,20 @@
   "name": "PlutoWallet",
   "slug": "pluto-wallet",
   "description": "Multi-platform mobile wallet for substrate-based chains. Focuses on the best UX. First C# mobile wallet in Polkadot ecosystem.",
-  "richText": "",
+  "richText": "Multi-platform mobile wallet for substrate-based chains. Focuses on the best UX. First C# mobile wallet in Polkadot ecosystem.",
   "links": {
     "website": [],
     "docs": [],
     "explorer": [],
     "repository": [
       {
-        "label": "",
+        "label": "PlutoWallet",
         "url": "https://github.com/rostislavlitovkin/plutowallet"
       }
     ],
     "social": [
       {
-        "label": "",
+        "label": "X",
         "url": "https://x.com/_PlutoWallet_"
       }
     ]
