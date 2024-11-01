@@ -59,8 +59,8 @@
       "runtime"
     ],
     "technologies": [
-      "Substrate",
-      "Ink!"
+      "substrate",
+      "ink"
     ],
     "types": [
       "platform"

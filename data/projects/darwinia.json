@@ -65,8 +65,8 @@
       "smart-contract"
     ],
     "technologies": [
-      "Substrate",
-      "EVM"
+      "substrate",
+      "evm"
     ],
     "types": [
       "platform"

@@ -67,7 +67,7 @@
     "networks": ["Polkadot"],
     "purposes": ["defi", "evm", "staking"],
     "stackLevels": ["protocol", "runtime"],
-    "technologies": ["Substrate"],
+    "technologies": ["substrate"],
     "types": ["platform", "tool", "library"],
     "rewards": false
   }
