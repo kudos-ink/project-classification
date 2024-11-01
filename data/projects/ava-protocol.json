@@ -78,8 +78,8 @@
       "runtime"
     ],
     "technologies": [
-      "Substrate",
-      "EVM"
+      "substrate",
+      "evm"
     ],
     "types": [
       "platform",
