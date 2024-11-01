@@ -34,11 +34,6 @@
       "offchain"
     ],
     "technologies": [
-      "Polkadot Unity SDK (Substrate.Net.Api, Substrate.Net.Toolchain)",
-      "C#",
-      ".Net MAUI",
-      "Nethereum",
-      "StrawberryShake"
     ],
     "types": [
       "client",
