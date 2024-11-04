@@ -43,7 +43,11 @@ while ((match = regex.exec(issueBody)) !== null) {
   const key = match[1].trim();
   let value = match[2].trim();
 
-  if (["Purposes", "Stack Levels", "Types", "Rewards"].includes(key)) {
+  if (
+    ["Purposes", "Stack Levels", "Types", "Rewards", "Technologies"].includes(
+      key
+    )
+  ) {
     value = value.split("\n").map((v) => v.trim());
   } else if (
     [
@@ -52,7 +56,6 @@ while ((match = regex.exec(issueBody)) !== null) {
       "Explorers",
       "Repositories",
       "Social Media",
-      "Technologies",
       "Networks",
     ].includes(key)
   ) {
@@ -145,7 +148,7 @@ const outputJson = {
     networks: handleMultiLineField(data.networks || []),
     purposes: filterSelectedCheckboxes(data.purposes || []),
     stackLevels: filterSelectedCheckboxes(data.stackLevels || []),
-    technologies: handleMultiLineField(data.technologies || []),
+    technologies: filterSelectedCheckboxes(data.technologies || []),
     types: filterSelectedCheckboxes(data.types || []),
     rewards:
       data.rewards &&
