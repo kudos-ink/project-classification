@@ -111,12 +111,15 @@ body:
         - label: messaging
         - label: offchain
 
-  - type: textarea
+  - type: checkboxes
     id: technologies
     attributes:
       label: Technologies
-      description: "On each line write the technologies used. In general, these are frameworks or languages unknown to Github."
-      placeholder: "Substrate\nInk!"
+      description: "Select the technologies used."
+      options:
+        - label: substrate
+        - label: ink
+        - label: evm
 
   - type: checkboxes
     id: types
