@@ -1,0 +1,59 @@
+{
+  "name": "Dot Code School",
+  "slug": "dotcodeschool",
+  "description": "Dot Code School is an interactive online school that teaches you how to build meaningful web3 applications using the Polkadot SDK.",
+  "richText": "Dot Code School is an interactive online school that teaches you how to build meaningful web3 applications using the Polkadot SDK.",
+  "links": {
+    "website": [
+      {
+        "label": "dotcodeschool.com",
+        "url": "https://dotcodeschool.com/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "GitHub README",
+        "url": "https://github.com/dotcodeschool/frontend/blob/master/README.md"
+      }
+    ],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Dot Code School",
+        "url": "https://github.com/dotcodeschool/frontend"
+      },
+      {
+        "label": "Backend",
+        "url": "https://github.com/dotcodeschool/backend"
+      },
+      {
+        "label": "CLI",
+        "url": "https://github.com/dotcodeschool/cli"
+      }
+    ],
+    "social": [
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/dotcodeschool"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot"
+    ],
+    "purposes": [
+      "universal"
+    ],
+    "stackLevels": [
+      "offchain"
+    ],
+    "technologies": [
+      "substrate",
+    ],
+    "types": [
+      "platform"
+    ],
+    "rewards": false
+  }
+}
