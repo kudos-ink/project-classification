@@ -39,21 +39,11 @@
     ]
   },
   "attributes": {
-    "networks": [
-      "Polkadot"
-    ],
-    "purposes": [
-      "universal"
-    ],
-    "stackLevels": [
-      "offchain"
-    ],
-    "technologies": [
-      "substrate"
-    ],
-    "types": [
-      "platform"
-    ],
+    "networks": ["Polkadot"],
+    "purposes": ["universal"],
+    "stackLevels": ["offchain"],
+    "technologies": ["substrate"],
+    "types": ["platform"],
     "rewards": false
   }
 }
