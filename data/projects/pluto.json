@@ -10,7 +10,7 @@
     "repository": [
       {
         "label": "PlutoWallet",
-        "url": "https://github.com/rostislavlitovkin/plutowallet"
+        "url": "https://github.com/RostislavLitovkin/PlutoWallet"
       }
     ],
     "social": [
@@ -21,26 +21,11 @@
     ]
   },
   "attributes": {
-    "networks": [
-      "All substrate based chains."
-    ],
-    "purposes": [
-      "data",
-      "nft",
-      "staking",
-      "universal"
-    ],
-    "stackLevels": [
-      "offchain"
-    ],
-    "technologies": [
-    ],
-    "types": [
-      "client",
-      "framework",
-      "mobile",
-      "service"
-    ],
+    "networks": ["All substrate based chains."],
+    "purposes": ["data", "nft", "staking", "universal"],
+    "stackLevels": ["offchain"],
+    "technologies": [],
+    "types": ["client", "framework", "mobile", "service"],
     "rewards": true
   }
 }
