@@ -29,6 +29,10 @@
       {
         "label": "Solidity Merkle Trees",
         "url": "https://github.com/polytope-labs/solidity-merkle-trees"
+      },
+      {
+        "label": "Simnode",
+        "url": "https://github.com/polytope-labs/sc-simnode"
       }
     ],
     "social": [
