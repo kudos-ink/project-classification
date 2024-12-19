@@ -14,10 +14,6 @@
     "explorer": [],
     "repository": [
       {
-        "label": "Polkadot Wallet Snap for MetaMask",
-        "url": "https://github.com/ChainSafe/metamask-snap-polkadot"
-      },
-      {
         "label": "Lodestar",
         "url": "https://github.com/ChainSafe/lodestar"
       },
