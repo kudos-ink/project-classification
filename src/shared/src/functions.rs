@@ -180,23 +180,24 @@ pub async fn import_repositories(
             .enumerate()
             .map(|(i, _)| {
                 format!(
-                    "(${}, ${}, ${}, ${}, ${}, ${}, ${}, ${}, ${})",
-                    i * 9 + 1,
-                    i * 9 + 2,
-                    i * 9 + 3,
-                    i * 9 + 4,
-                    i * 9 + 5,
-                    i * 9 + 6,
-                    i * 9 + 7,
-                    i * 9 + 8,
-                    i * 9 + 9,
+                    "(${}, ${}, ${}, ${}, ${}, ${}, ${}, ${}, ${}, 'dev', ${})",
+                    i * 10 + 1,
+                    i * 10 + 2,
+                    i * 10 + 3,
+                    i * 10 + 4,
+                    i * 10 + 5,
+                    i * 10 + 6,
+                    i * 10 + 7,
+                    i * 10 + 8,
+                    i * 10 + 9,
+                    i * 10 + 10,
                 )
             })
             .collect::<Vec<_>>()
             .join(", ");
 
         let query_string = format!(
-            "INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_id, description) VALUES {}
+            "INSERT INTO tasks (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_id, description, type, status) VALUES {}
              ON CONFLICT (repository_id, number)
              DO UPDATE SET
                 title = EXCLUDED.title,
@@ -205,7 +206,8 @@ pub async fn import_repositories(
                 issue_closed_at = EXCLUDED.issue_closed_at,
                 open = EXCLUDED.open,
                 assignee_id = EXCLUDED.assignee_id,
-                description = EXCLUDED.description",
+                description = EXCLUDED.description,
+                status = EXCLUDED.status",
             placeholders
         );
 
@@ -240,7 +242,7 @@ pub async fn import_repositories(
 
     sqlx::query(
         r#"
-        UPDATE issues
+        UPDATE tasks
         SET certified = true
         WHERE (certified = false OR certified IS NULL) AND 'kudos' = ANY(labels)
         "#,
