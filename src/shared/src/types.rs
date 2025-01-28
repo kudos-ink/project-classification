@@ -31,7 +31,9 @@ pub struct KudosIssue {
     // pub issue_updated_at: DateTime<Utc>,
     pub issue_closed_at: Option<DateTime<Utc>>,
     pub creator: String,
-    pub assignee: Option<String>,
+    pub assignee_username: Option<String>,
+    pub assignee_github_id: Option<i64>,
+    pub assignee_avatar_url: Option<String>,
     // pub certified: bool,
     pub labels: Vec<String>,
     pub description: Option<String>,
@@ -53,7 +55,11 @@ impl From<Issue> for KudosIssue {
             // issue_updated_at: value.updated_at,
             issue_closed_at: value.closed_at,
             creator: value.user.login,
-            assignee: value.assignee.map(|assignee| assignee.login),
+            assignee_username: value.assignee.clone().map(|assignee| assignee.login),
+            assignee_github_id: value.assignee.clone().map(|assignee| assignee.id.0 as i64),
+            assignee_avatar_url: value
+                .assignee
+                .map(|assignee| assignee.avatar_url.to_string()),
             // certified: labels.contains(&String::from("kudos")),
             labels,
             description: value.body,

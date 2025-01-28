@@ -59,6 +59,8 @@ pub async fn import_repositories(
     let octocrab = Octocrab::builder().personal_token(token).build()?;
     let mut total_issues_imported = 0;
 
+    let username_to_id = get_username_map(tx).await?;
+
     for (i, repo) in repos_to_import.iter().enumerate() {
         let repo_info = RepoInfo::from_url(&repo.url)
             .ok_or_else(|| Error::from("Couldn't extract repo info from url"))?;
@@ -211,11 +213,30 @@ pub async fn import_repositories(
             placeholders
         );
 
-        let username_to_id = get_username_map(tx).await?;
+        // let username_to_id = get_username_map(tx).await?;
 
         let mut insert_issues_query = sqlx::query(&query_string);
 
         for issue in filtered_issues {
+            let assignee_user_id = if let Some(assignee) = &issue.assignee_username {
+                if let Some(user_id) = username_to_id.get(assignee) {
+                    Some(*user_id)
+                } else {
+                    let new_user_row = sqlx::query(
+                        "INSERT INTO users (username, avatar, github_id) VALUES ($1, $2, $3) ON CONFLICT (github_id) DO UPDATE SET username = EXCLUDED.username RETURNING id",
+                    )
+                    .bind(&issue.assignee_username)
+                    .bind(&issue.assignee_avatar_url)
+                    .bind(&issue.assignee_github_id)
+                    .fetch_one(&mut **tx)
+                    .await?;
+                    let new_user_id: i32 = new_user_row.get("id");
+                    Some(new_user_id)
+                }
+            } else {
+                None
+            };
+
             insert_issues_query = insert_issues_query
                 .bind(issue.number)
                 .bind(issue.title)
@@ -224,13 +245,9 @@ pub async fn import_repositories(
                 .bind(issue.issue_created_at)
                 .bind(issue.issue_closed_at)
                 .bind(issue.issue_closed_at.is_none())
-                .bind(if let Some(assignee) = &issue.assignee {
-                    username_to_id.get(assignee)
-                } else {
-                    None
-                })
+                .bind(assignee_user_id)
                 .bind(issue.description)
-                .bind(match (issue.issue_closed_at, &issue.assignee) {
+                .bind(match (issue.issue_closed_at, &issue.assignee_username) {
                     (None, None) => "open",
                     (None, Some(_)) => "in-progress",
                     (Some(_), _) => "completed",

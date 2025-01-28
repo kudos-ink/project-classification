@@ -32,15 +32,34 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
         &issue_details.owner, &issue_details.repo
     );
 
-    let repo_id_rows = sqlx::query("SELECT id FROM repositories WHERE url = $1") // make url unique
+    let repo_id_rows = sqlx::query("SELECT id, project_id FROM repositories WHERE url = $1") // make url unique
         .bind(&repo_url)
         .fetch_all(&mut *tx)
         .await?;
 
+    let username_to_id = get_username_map(&mut tx).await?;
+
+    let assignee_user_id = if let Some(assignee) = &kudos_issue.assignee_username {
+        if let Some(user_id) = username_to_id.get(assignee) {
+            Some(*user_id)
+        } else {
+            let new_user_row = sqlx::query(
+                "INSERT INTO users (username, avatar, github_id) VALUES ($1, $2, $3) ON CONFLICT (github_id) DO UPDATE SET username = EXCLUDED.username RETURNING id",
+            )
+            .bind(&kudos_issue.assignee_username)
+            .bind(&kudos_issue.assignee_avatar_url)
+            .bind(&kudos_issue.assignee_github_id)
+            .fetch_one(&mut *tx)
+            .await?;
+            let new_user_id: i32 = new_user_row.get("id");
+            Some(new_user_id)
+        }
+    } else {
+        None
+    };
+
     for repo_id_row in repo_id_rows {
         let repo_id: i32 = repo_id_row.get("id");
-
-        let username_to_id = get_username_map(&mut tx).await?;
 
         sqlx::query(
         r#"
@@ -64,14 +83,10 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
         .bind(repo_id)
         .bind(&kudos_issue.issue_created_at)
         .bind(&kudos_issue.issue_closed_at)
-        .bind(if let Some(assignee) = &kudos_issue.assignee {
-                        username_to_id.get(assignee)
-                    } else {
-                        None
-                    })
+        .bind(assignee_user_id)
         .bind(&kudos_issue.issue_closed_at.is_none())
         .bind(&kudos_issue.description)
-        .bind(match (&kudos_issue.issue_closed_at, &kudos_issue.assignee) {
+        .bind(match (&kudos_issue.issue_closed_at, &kudos_issue.assignee_username) {
             (None, None) => "open",
             (None, Some(_)) => "in-progress",
             (Some(_), _) => "completed",
