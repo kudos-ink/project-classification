@@ -44,7 +44,7 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
 
         sqlx::query(
         r#"
-        INSERT INTO tasks (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open, description, type, status)
+        INSERT INTO tasks (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_user_id, open, description, type, status)
         VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, 'dev', $10)
         ON CONFLICT (repository_id, number)
         DO UPDATE SET
@@ -52,7 +52,7 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
             labels = EXCLUDED.labels,
             issue_created_at = EXCLUDED.issue_created_at,
             issue_closed_at = EXCLUDED.issue_closed_at,
-            assignee_id = EXCLUDED.assignee_id,
+            assignee_user_id = EXCLUDED.assignee_user_id,
             open = EXCLUDED.open,
             description = EXCLUDED.description,
             status = EXCLUDED.status
@@ -82,8 +82,8 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
     sqlx::query(
         r#"
         UPDATE tasks
-        SET certified = true
-        WHERE (certified = false OR certified IS NULL) AND 'kudos' = ANY(labels)
+        SET is_certified = true
+        WHERE (is_certified = false OR is_certified IS NULL) AND 'kudos' = ANY(labels)
         "#,
     )
     .execute(&mut *tx)

@@ -197,7 +197,7 @@ pub async fn import_repositories(
             .join(", ");
 
         let query_string = format!(
-            "INSERT INTO tasks (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_id, description, type, status) VALUES {}
+            "INSERT INTO tasks (number, title, labels, repository_id, issue_created_at, issue_closed_at, open, assignee_user_id, description, type, status) VALUES {}
              ON CONFLICT (repository_id, number)
              DO UPDATE SET
                 title = EXCLUDED.title,
@@ -205,7 +205,7 @@ pub async fn import_repositories(
                 issue_created_at = EXCLUDED.issue_created_at,
                 issue_closed_at = EXCLUDED.issue_closed_at,
                 open = EXCLUDED.open,
-                assignee_id = EXCLUDED.assignee_id,
+                assignee_user_id = EXCLUDED.assignee_user_id,
                 description = EXCLUDED.description,
                 status = EXCLUDED.status",
             placeholders
@@ -224,12 +224,17 @@ pub async fn import_repositories(
                 .bind(issue.issue_created_at)
                 .bind(issue.issue_closed_at)
                 .bind(issue.issue_closed_at.is_none())
-                .bind(if let Some(assignee) = issue.assignee {
-                    username_to_id.get(&assignee)
+                .bind(if let Some(assignee) = &issue.assignee {
+                    username_to_id.get(assignee)
                 } else {
                     None
                 })
                 .bind(issue.description)
+                .bind(match (issue.issue_closed_at, &issue.assignee) {
+                    (None, None) => "open",
+                    (None, Some(_)) => "in-progress",
+                    (Some(_), _) => "completed",
+                })
         }
 
         let issues_inserted_count = insert_issues_query
@@ -243,8 +248,8 @@ pub async fn import_repositories(
     sqlx::query(
         r#"
         UPDATE tasks
-        SET certified = true
-        WHERE (certified = false OR certified IS NULL) AND 'kudos' = ANY(labels)
+        SET is_certified = true
+        WHERE (is_certified = false OR is_certified IS NULL) AND 'kudos' = ANY(labels)
         "#,
     )
     .execute(&mut **tx)
