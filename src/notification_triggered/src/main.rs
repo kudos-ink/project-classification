@@ -44,17 +44,18 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
 
         sqlx::query(
         r#"
-        INSERT INTO issues (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_id, open, description)
-        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)
+        INSERT INTO tasks (number, title, labels, repository_id, issue_created_at, issue_closed_at, assignee_user_id, open, description, type, status)
+        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, 'dev', $10)
         ON CONFLICT (repository_id, number)
         DO UPDATE SET
             title = EXCLUDED.title,
             labels = EXCLUDED.labels,
             issue_created_at = EXCLUDED.issue_created_at,
             issue_closed_at = EXCLUDED.issue_closed_at,
-            assignee_id = EXCLUDED.assignee_id,
+            assignee_user_id = EXCLUDED.assignee_user_id,
             open = EXCLUDED.open,
-            description = EXCLUDED.description
+            description = EXCLUDED.description,
+            status = EXCLUDED.status
         "#
         )
         .bind(&kudos_issue.number)
@@ -70,14 +71,19 @@ async fn function_handler(event: LambdaEvent<AsyncLambdaPayload>) -> Result<Res,
                     })
         .bind(&kudos_issue.issue_closed_at.is_none())
         .bind(&kudos_issue.description)
+        .bind(match (&kudos_issue.issue_closed_at, &kudos_issue.assignee) {
+            (None, None) => "open",
+            (None, Some(_)) => "in-progress",
+            (Some(_), _) => "completed",
+        })
         .execute(&mut *tx).await?;
     }
 
     sqlx::query(
         r#"
-        UPDATE issues
-        SET certified = true
-        WHERE (certified = false OR certified IS NULL) AND 'kudos' = ANY(labels)
+        UPDATE tasks
+        SET is_certified = true
+        WHERE (is_certified = false OR is_certified IS NULL) AND 'kudos' = ANY(labels)
         "#,
     )
     .execute(&mut *tx)
