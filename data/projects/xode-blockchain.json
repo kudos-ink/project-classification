@@ -1,0 +1,93 @@
+{
+  "name": "Xode Blockchain",
+  "slug": "xode-blockchain",
+  "description": "Xode Blockchain is a decentralized blockchain platform developed by Xode-DAO. It focuses on scalability, security, and seamless integration for decentralized applications (dApps). The project aims to provide a robust foundation for developers to build next-generation Web3 solutions.",
+  "richText": "",
+  "links": {
+    "website": [
+      {
+        "label": "www.xode.net",
+        "url": "https://www.xode.net/"
+      }
+    ],
+    "docs": [
+      {
+        "label": "",
+        "url": "https://wiki.xode.net/"
+      }
+    ],
+    "explorer": [
+      {
+        "label": "Xode blockscanner",
+        "url": "https://xode.net/blockscanner"
+      }
+    ],
+    "repository": [
+      {
+        "label": "Xode Blockchain",
+        "url": "https://github.com/Xode-DAO/xode-blockchain"
+      }
+    ],
+    "social": [
+      {
+        "label": "Facebook",
+        "url": "https://www.facebook.com/xodenet"
+      },
+      {
+        "label": "X/Twitter",
+        "url": "https://x.com/XodeNet"
+      },
+      {
+        "label": "Instagram",
+        "url": "https://www.instagram.com/xodenet_official"
+      },
+      {
+        "label": "Telegram",
+        "url": "https://t.me/Xodecom"
+      }
+    ]
+  },
+  "attributes": {
+    "networks": [
+      "Polkadot",
+      "Kusama"
+    ],
+    "purposes": [
+      "bridge",
+      "dao",
+      "data",
+      "defi",
+      "evm",
+      "gaming",
+      "governance",
+      "nft",
+      "oracles",
+      "rwa",
+      "staking",
+      "testing",
+      "universal"
+    ],
+    "stackLevels": [
+      "protocol",
+      "runtime",
+      "smart-contract",
+      "messaging",
+      "offchain"
+    ],
+    "technologies": [
+      "substrate",
+      "ink",
+      "evm"
+    ],
+    "types": [
+      "platform",
+      "tool",
+      "framework",
+      "template",
+      "mobile",
+      "service",
+      "dApp"
+    ],
+    "rewards": true
+  }
+}
