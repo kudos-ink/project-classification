@@ -1,0 +1,32 @@
+{
+  "name": "Polkadot Hackathon Idea Pool",
+  "slug": "hackathonideas",
+  "description": "A repository containing issues to form a pool of ideas for teams to work on at hackathons. These are specifically geared for Ethereum hackathons aiming to help teams launch new projects to the Polkadot Hub.",
+  "richText": "",
+  "links": {
+    "website": [],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "",
+        "url": "https://github.com/polkadot-developers/hackathon-guide/issues"
+      }
+    ],
+    "social": []
+  },
+  "attributes": {
+    "networks": [],
+    "purposes": [],
+    "stackLevels": [
+      "smart-contract"
+    ],
+    "technologies": [
+      "substrate",
+      "ink",
+      "evm"
+    ],
+    "types": [],
+    "rewards": true
+  }
+}
