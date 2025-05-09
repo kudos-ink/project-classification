@@ -1,0 +1,32 @@
+{
+  "name": "Polkadot Developers",
+  "slug": "polkadot-developers",
+  "description": "Documentation, samples, and tutorials for the Polkadot Ecosystem",
+  "richText": "",
+  "links": {
+    "website": [],
+    "docs": [],
+    "explorer": [],
+    "repository": [
+      {
+        "label": "Hackathon Guide / Idea Pool",
+        "url": "https://github.com/polkadot-developers/hackathon-guide"
+      }
+    ],
+    "social": []
+  },
+  "attributes": {
+    "networks": [],
+    "purposes": [],
+    "stackLevels": [
+      "smart-contract"
+    ],
+    "technologies": [
+      "substrate",
+      "ink",
+      "evm"
+    ],
+    "types": [],
+    "rewards": true
+  }
+}
